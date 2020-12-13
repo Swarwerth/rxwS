@@ -1,0 +1,5 @@
+{
+  "logsChannel": "{id}",
+  "modChannel": "{id}",
+  "guild" : "{id}"
+}

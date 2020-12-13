@@ -1,0 +1,25 @@
+{
+  "name": "rxws",
+  "version": "0.2",
+  "description": "Help: Swarwerth#2943",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.3",
+    "common-tags": "^1.8.0",
+    "discord-player": "^3.0.2",
+    "discord.js": "^12.4.1",
+    "ffmpeg-static": "^4.2.7",
+    "fs": "0.0.1-security",
+    "math-expression-evaluator": "^1.2.22",
+    "moment": "^2.29.1",
+    "ms": "^2.1.2",
+    "node-fetch": "^2.6.1",
+    "opusscript": "0.0.7",
+    "quick.db": "^7.1.3"
+  }
+}
