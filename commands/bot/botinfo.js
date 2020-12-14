@@ -14,7 +14,7 @@ module.exports.run = (client, message, args) => {
             {name: `> Développeur`, value: '<@259302097197989888>', inline: true},
             {name: `> Statistiques`, value:
                 '`' + client.channels.cache.size + ' salons`' +
-                '\n`' + client.guilds.cache.size + '`',
+                '\n`' + client.guilds.cache.size + ' serveurs`',
                 inline: false},
             {name: `> Versions`, value:
                 'Bot : `v.0.2.2`' +
