@@ -91,15 +91,15 @@ Now, your bot is on and all is ok !
 
 ## 🎏 Modules
 
-- @discordjs/opus
-- common-tags
-- discord-player
-- discord.js
-- ffmpeg-static
-- fs
-- math-expression-evaluator
-- moment
-- ms
-- node-fetch
-- opusscript
-- quick.db
+- [@discordjs/opus](https://www.npmjs.com/package/@discordjs/opus)
+- [common-tags](https://www.npmjs.com/package/common-tags)
+- [discord-player](https://www.npmjs.com/package/discord-player)
+- [discord.js](https://www.npmjs.com/package/discord.js)
+- [ffmpeg-static](https://www.npmjs.com/package/opusscript)
+- [fs](https://www.npmjs.com/package/fs)
+- [math-expression-evaluator](https://www.npmjs.com/package/math-expression-evaluator)
+- [moment](https://www.npmjs.com/package/moment)
+- [ms](https://www.npmjs.com/package/ms)
+- [node-fetch](https://www.npmjs.com/package/node-fetch)
+- [opusscript](https://www.npmjs.com/package/opusscript)
+- [quick.db](https://www.npmjs.com/package/quick.db)
