@@ -6,7 +6,7 @@
 ## ⚡ Installation
 
 You need first of all, to **download the code** and have **node** and a **code editor** (like [Visual Studio Code](https://code.visualstudio.com/)). Then, you need to modify file `config/bot.json/`.
-You need to complete this code :
+You need to replace \*TOKEN\* by your token. You can find the bot's token on the [Discord Developpers](https://discordapp.com/developers/applications) page.
 
 ```js
 {
@@ -14,7 +14,15 @@ You need to complete this code :
 }
 ```
 
-*You can find the bot's token on the [Discord Developpers](https://discordapp.com/developers/applications) page.*
+Moreover, you need to change the ID in the `config/guild.json` file. To find the channels' ID and the guild's ID, you need to have the developper mode in Discord. You need to replace \*id\* by the ID's.
+
+```js
+{
+  "logsChannel": "*id*",
+  "modChannel": "*id*",
+  "guild" : "*id*"
+}
+```
 
 Now, you need to install all dependencies. With the console, write :
 
@@ -32,7 +40,7 @@ node index.js
 
 Now, your bot is on and all is ok !
 
-## 🎈 Commands
+## 🎈 Features
 
 #### 🤖 Bot commands
 
@@ -88,6 +96,10 @@ Now, your bot is on and all is ok !
 - `skip` - skip the current music
 - `stop` - stop the queue
 - `volume` - change the bot's volume
+
+#### 🎞 Tickets
+
+You can send direct messages to the Bot. It will be send in the mod channel set by `config/guild.json`
 
 ## 🎏 Modules
 
