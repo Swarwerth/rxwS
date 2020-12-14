@@ -10,7 +10,7 @@ You need to replace \*token\* by your token. You can find the bot's token on the
 
 ```js
 {
-  "token": "*TOKEN*",
+  "token": "*token*",
 }
 ```
 
