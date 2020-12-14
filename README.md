@@ -6,7 +6,7 @@
 ## ⚡ Installation
 
 You need first of all, to **download the code** and have **node** and a **code editor** (like [Visual Studio Code](https://code.visualstudio.com/)). Then, you need to modify file `config/bot.json/`.
-You need to replace \*TOKEN\* by your token. You can find the bot's token on the [Discord Developpers](https://discordapp.com/developers/applications) page.
+You need to replace \*token\* by your token. You can find the bot's token on the [Discord Developpers](https://discordapp.com/developers/applications) page.
 
 ```js
 {
