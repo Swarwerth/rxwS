@@ -17,7 +17,7 @@ module.exports.run = (client, message, args) => {
                 '\n`' + client.guilds.cache.size + '`',
                 inline: false},
             {name: `> Versions`, value:
-                'Bot : `v.0.2`' +
+                'Bot : `v.0.2.2`' +
                 '\nDiscord.js : `v.12.4.1`' +
                 '\nNode.js : `v.12.18.3`',
                 inline: false},

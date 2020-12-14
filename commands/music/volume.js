@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(Math.round(parseInt(args[0])) < 1 || Math.round(parseInt(args[0]) || isNaN(args[0])) > 100) return message.channel.send(errorArgsVolume);
+  if(isNaN(args[0]) || Math.round(parseInt(args[0])) < 1 || Math.round(parseInt(args[0])) > 100) return message.channel.send(errorArgsVolume);
 
   const volumeEmbed = new MessageEmbed()
     .setColor('#ccffd3')
