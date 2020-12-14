@@ -99,7 +99,7 @@ Now, your bot is on and all is ok !
 
 #### 🎞 Tickets
 
-You can send direct messages to the Bot. It will be send in the mod channel set by `config/guild.json`
+You can send direct messages to the bot. It will be send in the mod channel set by `config/guild.json`
 
 ## 🎏 Modules
 
