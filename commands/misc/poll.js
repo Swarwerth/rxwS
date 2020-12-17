@@ -21,4 +21,4 @@ module.exports.run = async (client, message, args) => {
 
 };
 
-module.exports.help = MESSAGES.COMMANDS.MOD.POLL;
+module.exports.help = MESSAGES.COMMANDS.MISC.POLL;
