@@ -1,7 +1,7 @@
 # rxwS - Bot discord.js
   An exemple of a Discord bot, using discord.js.
   The code is essantially in **French** 🇫🇷. *It will maybe translate 👀*.
-  If you need help for your project, you can contact me in *Discussion* or in Discord : `Swarwerth#2943`
+  If you need help for your project, you can contact me in *Discussion* or in Discord: `Swarwerth#2943`
 
 ## ⚡ Installation
 
@@ -24,7 +24,7 @@ Moreover, you need to change the ID in the `config/guild.json` file. To find the
 }
 ```
 
-Now, you need to install all dependencies. With the console, write :
+Now, you need to install all dependencies. With the console, write:
 
 ```
 npm install
@@ -32,13 +32,13 @@ npm install
 
 ## ☀ Turn on the bot
 
-All the installation is done, you can now start your bot, with **node**. In the console, you need to write :
+All the installation is done, you can now start your bot, with **node**. In the console, you need to write:
 
 ```
 node index.js
 ```
 
-Now, your bot is on and all is ok !
+Now, your bot is on and all is ok!
 
 ## 🎈 Features
 
@@ -82,7 +82,7 @@ Now, your bot is on and all is ok !
 
 
 #### 🎵 Music
-*Thanks to [ZerioDev](https://github.com/ZerioDev/Music-bot) for his help !*
+*Thanks to [ZerioDev](https://github.com/ZerioDev/Music-bot) for his help!*
 
 - `clearqueue` - clear the queue
 - `filter` - activate or desactivate a filter
