@@ -11,7 +11,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
     "common-tags": "^1.8.0",
-    "discord-player": "^3.0.2",
+    "discord-player": "^3.0.3",
     "discord.js": "^12.4.1",
     "ffmpeg-static": "^4.2.7",
     "fs": "0.0.1-security",

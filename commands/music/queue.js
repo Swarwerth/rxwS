@@ -37,7 +37,7 @@ module.exports.run = async (client, message, args) => {
 
   const queueEmbed = new MessageEmbed()
     .setColor('#ccfdff')
-    .setAuthor(`🥏 Musique en attente`)
+    .setAuthor(`🥏 Musique en attente`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`Jouée actuellement :`, `${queue.playing.title} | ${queue.playing.author}`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))

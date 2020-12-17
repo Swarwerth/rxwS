@@ -1,7 +1,7 @@
 {
-  "prefix": "!",
+  "prefix": "//", 
   "token": "*token*",
-  "activityname": "https://github.com/Swarwerth/rxwS",
+  "activityname": "https://github.com/Swarwerth/rxwS/",
   "activitytype": "WATCHING",
   "status": "dnd"
 }
