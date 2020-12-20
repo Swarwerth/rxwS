@@ -50,52 +50,60 @@ Now, your bot is on and all is ok!
 
 #### 🎉 Fun commands
 
-- `dice` - throw a dice
-- `joke` - display a joke
-- `love` - display the percentage of love between two users
-- `question` - answer to a question asked
-- `rps` - play Rock, paper, scissors
-- `shoot` - kill someone
+| Command               | Description                                                             | Aliases                                  | Usage                          |
+| --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
+| //dice                | Throw a dice                                                            | 6d, dé                                   | //dice                         |
+| //joke                | Display a joke                                                          | blague, jk                               | //joke                         |
+| //love                | Display the percentage of love between two users                        | affinity, amour, calclove                | //love @Swarwerth              |
+| //question            | Answer to a question asked                                              | 8ball, ask                               | //question Am I beautiful?     |
+| //rps                 | Play Rock, paper, scissors                                              | pfc, rock                                | //rps rock                     |
+| //shoot               | Kill someone                                                            | kill, tuer                               | //shoot @Swarwerth             |
 
 #### 🧨 Miscellaneous commands
 
-- `avatar` - display someone's avatar
-- `calc` - calculate an expression
-- `fancytext` - use emoji for a text
-- `fliptext` - flip a text
-- `infoemoji` - display emoji's informations
-- `instagram` - display an instagram profil
-- `say` - make talk the bot
-- `serverinfo` - display the server's informations
-- `userinfo` - display the user's informations
+| Command               | Description                                                             | Aliases                                  | Usage                          |
+| --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
+| //avatar              | Display someone's avatar                                                | logo, picture                            | //avatar [@Swarwerth]          |
+| //calc                | Calculate an expression                                                 | /                                        | //calc 2+2                     |
+| //fancytext           | Use emoji to write a text                                               | emojitext, fancy                         | //text Hello World!            |
+| //fliptext            | Flip a text                                                             | flip, textflip                           | //fliptext Hello World!        |
+| //infoemoji           | Display emoji's informations                                            | emoji, emote, infoemote                  | //infoemoji :kappa:            |
+| //instagram           | Display an instagram profil                                             | inst, insta                              | //instagram swarwerth          |
+| //poll                | Threw a poll                                                            | quickpoll, sondage                       | //poll Am I beautiful?         |
+| //say                 | Make talk the bot                                                       | repeat, hey                              | //say Hello World!             |
+| //serverinfo          | Display the server's informations                                       | guild, server, serverstats, si           | //serverinfo                   |
+| //userinfo            | Display the user's informations                                         | user, ui, userstats                      | //userinfo @Swarwerth          |
 
 #### 🔫 Moderation
 
-- `ban` - ban an user
-- `kick` - kick an user
-- `mute` - mute an user
-- `poll` - throw a poll
-- `prune` - delete user's messages
-- `purge` - delete messages
-- `unban` - unban an user
-- `unmute` - unmute an user
-
+| Command               | Description                                                             | Aliases                                  | Usage                          |
+| --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
+| //ban                 | Ban an user                                                             | /                                        | //ban @Swarwerth [Spam]        |
+| //kick                | Kick an user                                                            | /                                        | //kick @Swarwerth [Spam]       |
+| //mute                | Mute an user                                                            | chut, muet                               | //mute [60s] [Spam]            |
+| //prune               | Delete user's messages                                                  | /                                        | //prune @Swarwerth 50          |
+| //purge               | Delete messages                                                         | clear, suppr                             | //purge 50                     |
+| //unban               | Unban an user                                                           | deban, debannir                          | //unban 259302097197989888     |
+| //unmute              | Unmute an user                                                          | demute, demuter                          | //unmute @Swarwerth            |
 
 #### 🎵 Music
 *Thanks to [ZerioDev](https://github.com/ZerioDev/Music-bot) for his help!*
 
-- `clearqueue` - clear the queue
-- `filter` - activate or desactivate a filter
-- `filters` - show the filter's list
-- `loop` - loop the queue
-- `np` - display informations about the current music
-- `pause` - pause the current music
-- `queue` - display the queue
-- `resume` - resume the current music
-- `shuffle` - shuffle the queue
-- `skip` - skip the current music
-- `stop` - stop the queue
-- `volume` - change the bot's volume
+| Command               | Description                                                             | Aliases                                  | Usage                          |
+| --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
+| //clearqueue          | Clear the queue                                                         | cq, qc, queueclear                       | //clearqueue                   |
+| //filter              | Activate or desactivate a filter                                        | effect, filtre                           | //filter 8D                    |
+| //filters             | Show the filter's list                                                  | effectlist, filterslist                  | //filters                      |
+| //loop                | Loop the queue                                                          | boucle, replay                           | //loop                         |
+| //np                  | Display informations about the current music                            | time, timeleft, tl                       | //np                           |
+| //pause               | Pause the current music                                                 | /                                        | //pause                        |
+| //play                | Play a Youtube video                                                    | joue, song, p                            | //play Alan Walker             |
+| //queue               | Display the queue                                                       | list, q                                  | //queue                        |
+| //resume              | Resume the current music                                                | /                                        | //resume                       |
+| //shuffle             | Shuffle the queue                                                       | aléatoire, mélange, random               | //shuffle                      |
+| //skip                | Skip the current music                                                  | s, sauter                                | //skip                         |
+| //stop                | Stop the queue                                                          | /                                        | //stop                         |
+| //volume              | Change the bot's volume                                                 | /                                        | //volume 80                    |
 
 #### 🎞 Tickets
 
