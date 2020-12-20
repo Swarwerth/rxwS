@@ -44,9 +44,11 @@ Now, your bot is on and all is ok!
 
 #### 🤖 Bot commands
 
-- `botinfo` - informations about the bot
-- `help` - display all the commands
-- `ping` - display the bot's latence
+| Command               | Description                                                             | Aliases                                  | Usage                          |
+| --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
+| //botinfo             | Display informations about the bot                                      | bot, info                                | //botinfo                      |
+| //help                | Display all the commands                                                | commands, list                           | //help [avatar]                |
+| //ping                | Display the bot's latence                                               | affinity, amour, calclove                | //ping                         |
 
 #### 🎉 Fun commands
 
