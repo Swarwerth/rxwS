@@ -1,26 +1,25 @@
 const {MESSAGES} = require('../../util/constants');
-const {MessageEmbed} = require("discord.js");
+const {MessageEmbed} = require('discord.js');
 
 const moment = require('moment');
 moment.locale('fr');
 
 module.exports.run = (client, message, args) => {
 
-  const errorEmojiEmbed = new MessageEmbed()
+  const errorEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`emoji\` !`, `Merci d'indiquer un emoji personnalisé !`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(!args[0]) return message.channel.send(errorEmojiEmbed);
+  const argsSplit = args[0].split(':')[1];
+  const emoji = message.guild.emojis.cache.find(emoji => emoji.name === argsSplit);
 
-  const args0 = args[0].split(':')[1];
-  let emoji = message.guild.emojis.cache.find(emoji => emoji.name === args0);
-
-  if(!emoji) return message.channel.send(errorEmojiEmbed);
+  if (!emoji) return message.channel.send(errorEmbed);
 
   emoji.fetchAuthor().then(author => {
+
     const emojiEmbed = new MessageEmbed()
     .setColor('#ab6394')
     .setAuthor(`🎐 Informations sur ${emoji.name}`)
@@ -35,7 +34,8 @@ module.exports.run = (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-    message.channel.send(emojiEmbed);
+    return message.channel.send(emojiEmbed);
+    
   })
 };
 

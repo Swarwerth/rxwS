@@ -1,9 +1,10 @@
 const {MESSAGES} = require('../../util/constants');
-const {MessageEmbed} = require("discord.js");
+const {MessageEmbed} = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
 
-  random()
+  random();
+
   if (rdm == 1) {
     question = "Qu'est-ce qui est bleu et qui descend ?"
     answer = "Marseille dans le classement !"
@@ -135,14 +136,14 @@ module.exports.run = async (client, message, args) => {
     rdm = Math.floor(Math.random() * (max - min + 1) + min);
   };
 
-  const jokeEmbed = new MessageEmbed()
+  const embed = new MessageEmbed()
     .setColor('#a537fd')
     .setAuthor(`🎆 Blague du bot !`)
     .addField(question, answer)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  return message.channel.send(jokeEmbed);
+  return message.channel.send(embed);
 
 };
 

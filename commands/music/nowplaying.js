@@ -1,5 +1,5 @@
 const {MESSAGES} = require('../../util/constants');
-const {MessageEmbed} = require("discord.js");
+const {MessageEmbed} = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
 
@@ -55,4 +55,4 @@ module.exports.run = async (client, message, args) => {
 
 };
 
-module.exports.help = MESSAGES.COMMANDS.MUSIC.NP;
+module.exports.help = MESSAGES.COMMANDS.MUSIC.NOWPLAYING;

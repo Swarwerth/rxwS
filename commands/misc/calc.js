@@ -1,12 +1,13 @@
 const {MESSAGES} = require('../../util/constants');
 const {MessageEmbed} = require('discord.js');
-const math = require('math-expression-evaluator')
+
+const math = require('math-expression-evaluator');
 
 module.exports.run = (client, message, args) => {
 
   const calcul = args.join(' ');
 
-  const errorCalcEmbed = new MessageEmbed()
+  const errorEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu bien exécuter la commande \`calc\` !`, `Merci d'envoyer une équation mathématique valide !`, false)
@@ -17,17 +18,17 @@ module.exports.run = (client, message, args) => {
   try {
     answer = math.eval(calcul);
   } catch (err) {
-    return message.channel.send(errorCalcEmbed);
+    return message.channel.send(errorEmbed);
   };
 
-  const calcEmbed = new MessageEmbed()
+  const embed = new MessageEmbed()
     .setColor('#1f316b')
-    .setAuthor("🧮 Calculatrice")
+    .setAuthor(`🧮 Calculatrice`)
     .addField(`${calcul} =`, answer)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  message.channel.send(calcEmbed)
+  return message.channel.send(embed);
   
 };
 

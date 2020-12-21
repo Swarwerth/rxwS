@@ -21,16 +21,17 @@ module.exports.run = (client, message, args) => {
     return array[Math.floor(Math.random() * array.length)];
   };
 
-  let response = randomItem(responses)
+  const response = randomItem(responses)
 
-  const questionEmbed = new MessageEmbed()
+  const embed = new MessageEmbed()
     .setColor('#a537fd')
     .setAuthor(`🎱 Je vais répondre à ta question...`)
     .addField(args.join(' '), response)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  message.channel.send(questionEmbed);
+  message.channel.send(embed);
+  
 };
 
 module.exports.help = MESSAGES.COMMANDS.FUN.QUESTION;

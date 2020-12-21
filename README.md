@@ -48,18 +48,18 @@ Now, your bot is on and all is ok!
 | --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
 | //botinfo             | Display informations about the bot                                      | bot, info                                | //botinfo                      |
 | //help                | Display all the commands                                                | commands, list                           | //help [avatar]                |
-| //ping                | Display the bot's latence                                               | affinity, amour, calclove                | //ping                         |
+| //ping                | Display the bot's latence                                               | latence, pong                            | //ping                         |
 
 #### 🎉 Fun commands
 
 | Command               | Description                                                             | Aliases                                  | Usage                          |
 | --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
-| //dice                | Throw a dice                                                            | 6d, dé                                   | //dice                         |
-| //joke                | Display a joke                                                          | blague, jk                               | //joke                         |
+| //dice                | Throw a dice                                                            | dé                                       | //dice                         |
+| //joke                | Display a joke                                                          | blague                                   | //joke                         |
 | //love                | Display the percentage of love between two users                        | affinity, amour, calclove                | //love @Swarwerth              |
 | //question            | Answer to a question asked                                              | 8ball, ask                               | //question Am I beautiful?     |
 | //rps                 | Play Rock, paper, scissors                                              | pfc, rock                                | //rps rock                     |
-| //shoot               | Kill someone                                                            | kill, tuer                               | //shoot @Swarwerth             |
+| //shoot               | Kill the mentionned user                                                | kill, tuer                               | //shoot @Swarwerth             |
 
 #### 🧨 Miscellaneous commands
 
@@ -68,13 +68,13 @@ Now, your bot is on and all is ok!
 | //avatar              | Display someone's avatar                                                | logo, picture                            | //avatar [@Swarwerth]          |
 | //calc                | Calculate an expression                                                 | /                                        | //calc 2+2                     |
 | //fancytext           | Use emoji to write a text                                               | emojitext, fancy                         | //text Hello World!            |
-| //fliptext            | Flip a text                                                             | flip, textflip                           | //fliptext Hello World!        |
+| //fliptext            | Flip a text                                                             | flip                                     | //fliptext Hello World!        |
 | //infoemoji           | Display emoji's informations                                            | emoji, emote, infoemote                  | //infoemoji :kappa:            |
-| //instagram           | Display an instagram profil                                             | inst, insta                              | //instagram swarwerth          |
+| //instagram           | Display an instagram profil                                             | insta                                    | //instagram swarwerth          |
 | //poll                | Threw a poll                                                            | quickpoll, sondage                       | //poll Am I beautiful?         |
-| //say                 | Make talk the bot                                                       | repeat, hey                              | //say Hello World!             |
+| //say                 | Make talk the bot                                                       | repeat                                   | //say Hello World!             |
 | //serverinfo          | Display the server's informations                                       | guild, server, serverstats, si           | //serverinfo                   |
-| //userinfo            | Display the user's informations                                         | user, ui, userstats                      | //userinfo @Swarwerth          |
+| //userinfo            | Display the user's informations                                         | ui, user, userstats                      | //userinfo @Swarwerth          |
 
 #### 🔫 Moderation
 
@@ -85,8 +85,22 @@ Now, your bot is on and all is ok!
 | //mute                | Mute an user                                                            | chut, muet                               | //mute [60s] [Spam]            |
 | //prune               | Delete user's messages                                                  | /                                        | //prune @Swarwerth 50          |
 | //purge               | Delete messages                                                         | clear, suppr                             | //purge 50                     |
-| //unban               | Unban an user                                                           | deban, debannir                          | //unban 259302097197989888     |
-| //unmute              | Unmute an user                                                          | demute, demuter                          | //unmute @Swarwerth            |
+| //unban               | Unban an user                                                           | deban                                    | //unban 259302097197989888     |
+| //unmute              | Unmute an user                                                          | demute                                   | //unmute @Swarwerth            |
+
+### 💵 Economy
+
+| Command               | Description                                                             | Aliases                                  | Usage                          |
+| --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
+| //coinflip            | Make a bet on a coinflip                                                | coin, flip                               | //coinflip 20 pile             |
+| //daily               | Give daily money                                                        | /                                        | //daily                        |
+| //give                | Give money to an user                                                   | /                                        | //give @Swarwerth 50           |
+| //leaderboard         | Display the money or reputation leaderboard                             | lb, leader                               | //leaderboard [rep]            |
+| //profil              | Display the user's profil                                               | me, money                                | //profil [@Swarwerth]          |
+| //reputation          | Give a reputation point to an user                                      | point, rep                               | //reputation @Swarwerth        |
+| //send                | Send money to an user                                                   | /                                        | //send @Swarwerth 50           |
+| //work                | Work to earn money                                                      | /                                        | //work                         |
+| //works               | Display the list of works                                               | /                                        | //works 1                      |
 
 #### 🎵 Music
 *Thanks to [ZerioDev](https://github.com/ZerioDev/Music-bot) for his help!*
@@ -97,7 +111,7 @@ Now, your bot is on and all is ok!
 | //filter              | Activate or desactivate a filter                                        | effect, filtre                           | //filter 8D                    |
 | //filters             | Show the filter's list                                                  | effectlist, filterslist                  | //filters                      |
 | //loop                | Loop the queue                                                          | boucle, replay                           | //loop                         |
-| //np                  | Display informations about the current music                            | time, timeleft, tl                       | //np                           |
+| //nowplaying          | Display informations about the current music                            | np, time, timeleft, tl                   | //nowplaying                   |
 | //pause               | Pause the current music                                                 | /                                        | //pause                        |
 | //play                | Play a Youtube video                                                    | joue, song, p                            | //play Alan Walker             |
 | //queue               | Display the queue                                                       | list, q                                  | //queue                        |
@@ -114,7 +128,7 @@ You can send direct messages to the bot. It will be send in the mod channel set 
 ## 🎏 Modules
 
 - [@discordjs/opus](https://www.npmjs.com/package/@discordjs/opus)
-- [common-tags](https://www.npmjs.com/package/common-tags)
+- [axios](https://www.npmjs.com/package/axios)
 - [discord-player](https://www.npmjs.com/package/discord-player)
 - [discord.js](https://www.npmjs.com/package/discord.js)
 - [ffmpeg-static](https://www.npmjs.com/package/opusscript)
@@ -122,6 +136,6 @@ You can send direct messages to the bot. It will be send in the mod channel set 
 - [math-expression-evaluator](https://www.npmjs.com/package/math-expression-evaluator)
 - [moment](https://www.npmjs.com/package/moment)
 - [ms](https://www.npmjs.com/package/ms)
-- [node-fetch](https://www.npmjs.com/package/node-fetch)
 - [opusscript](https://www.npmjs.com/package/opusscript)
 - [quick.db](https://www.npmjs.com/package/quick.db)
+- [ytdl-core](https://www.npmjs.com/package/ytdl-core)

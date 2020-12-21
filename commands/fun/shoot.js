@@ -1,9 +1,9 @@
 const {MESSAGES} = require('../../util/constants');
-const {MessageEmbed} = require("discord.js");
+const {MessageEmbed} = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
 
-  const killed = message.mentions.users.first()
+  const killed = message.mentions.users.first();
 
   const responses = [
     `Le cadavre de ${killed} a été retrouvé !`,
@@ -18,24 +18,24 @@ module.exports.run = async (client, message, args) => {
     return array[Math.floor(Math.random() * array.length)];
   };
 
-  let response = randomItem(responses)
+  const response = randomItem(responses);
 
-  const shootEmbed = new MessageEmbed()
+  const embed = new MessageEmbed()
     .setColor('#c20000')
-    .setAuthor(`🔪 On nous signale un assasinat !`, message.mentions.users.first().displayAvatarURL({dynamic: true, format:'png'}))
-    .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .setAuthor(`🔪 On nous signale un assasinat !`, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setThumbnail(killed.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`Vous vous trouvez sur une scène de crime !`, response, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  const errorMentionShootEmbed = new MessageEmbed()
+  const errorMentionEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu bien exécuter la commande \`shoot\` !`, `Merci de mentionner un utilisateur du serveur !`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
     
-  args[0] = message.mentions.users.first() ? message.channel.send(shootEmbed) : message.channel.send(errorMentionShootEmbed) 
+  return args[0] = message.mentions.users.first() ? message.channel.send(embed) : message.channel.send(errorMentionEmbed);
 
 };
 

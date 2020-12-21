@@ -1,12 +1,11 @@
 const {MESSAGES} = require('../../util/constants');
-const {MessageEmbed} = require("discord.js");
+const {MessageEmbed} = require('discord.js');
 
-const {logsChannel} = require("../../config/guild.json")
-
+const ms = require('ms');
 const moment = require('moment');
 moment.locale('fr');
 
-const ms = require('ms');
+const {logsChannel} = require('../../config/guild.json');
 
 module.exports.run = async (client, message, args) => {
 
@@ -17,7 +16,7 @@ module.exports.run = async (client, message, args) => {
   const user = message.mentions.users.first();
   const member = message.guild.member(user);
 
-  const muteEmbed = new MessageEmbed()
+  const embed = new MessageEmbed()
     .setColor('#fff763')
     .setAuthor(`❌ Mute !`, user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setThumbnail(user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
@@ -25,7 +24,7 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  const muteDMEmbed = new MessageEmbed()
+  const DMEmbed = new MessageEmbed()
     .setColor('#fff763')
     .setAuthor(`❌ Mute !`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .setDescription(`*${message.guild.name}*`)
@@ -43,7 +42,7 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  const muteLogsEmbed = new MessageEmbed()
+  const logsEmbed = new MessageEmbed()
     .setColor('#fff763')
     .setAuthor(`❌ ${user.tag} a été rendu muet !`, user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setThumbnail(user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
@@ -62,15 +61,26 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
+  const errorNoGuildEmbed = new MessageEmbed()
+    .setColor('#c43131')
+    .setAuthor(`💢 Erreur !`)
+    .addField(`Je n'ai pas pu utiliser la commande \`mute\` sur cet utilisateur !`, `L'utilisateur mentionné n'est pas dans le serveur Discord !`, false)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setTimestamp();
+
+  const errorNoMentionEmbed = new MessageEmbed()
+    .setColor('#c43131')
+    .setAuthor(`💢 Erreur !`)
+    .addField(`Je n'ai pas pu utiliser la commande \`mute\` !`, `Merci de mentionner un utilisateur à rendre muet !`, false)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setTimestamp();
+
   if (!message.guild) return;
+  client.channels.cache.get(logsChannel).send(logsEmbed);
 
-  client.channels.cache.get(logsChannel).send(muteLogsEmbed);
+  if (!isNaN(args[1])) return message.channel.send('OOPS!')
 
-  if(!isNaN(args[1])) {
-    return message.channel.send('OOPS!')
-  };
-
-  if(!muteRole) {
+  if (!muteRole) {
     muteRole = await message.guild.roles.create({
       data: {
         name: '🔇 Mute',
@@ -88,28 +98,26 @@ module.exports.run = async (client, message, args) => {
     });
   };
 
-  if(user) {
+  if (user) {
     if (member) {
-      member
-        .send(muteDMEmbed)
-        .then(() => {
-          member.roles.add(muteRole.id)
-        })
-        .then(() => {
-          message.channel.send(muteEmbed);
-        })
-        .catch(err => {
-          message.channel.send(errorPermissionsMuteEmbed);
-        });
-    }
-  };
+
+      member.send(DMEmbed).then(() => {
+        member.roles.add(muteRole.id);
+      }).then(() => {
+        message.channel.send(embed);
+      })
+      .catch((err) => {
+        message.channel.send(errorPermissionsMuteEmbed);
+      });
+
+    } else return message.channel.send(errorNoGuildEmbed);
+  } else return message.channel.send(errorNoMentionEmbed);
 
   setTimeout(() => {
     member.roles.remove(muteRole.id)
-      .then(() => {
-        member.send(unmuteDMEmbed)
-      });
-  }, ms(muteTime));  
+    member.send(unmuteDMEmbed);
+  }, ms(muteTime));
+
 };
 
 module.exports.help = MESSAGES.COMMANDS.MOD.MUTE;

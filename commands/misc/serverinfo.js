@@ -1,12 +1,12 @@
 const {MESSAGES} = require('../../util/constants');
-const {MessageEmbed} = require("discord.js");
+const {MessageEmbed} = require('discord.js');
 
 const moment = require('moment');
 moment.locale('fr')
 
 module.exports.run = (client, message, args) => {
 
-  let region = {
+  const region = {
     "brazil" : "🇧🇷 \`Brézil\`",
     "europe" : "🇪🇺 \`Europe\`",
     "hong-kong" : "🇭🇰 \`Hong Kong\`",
@@ -22,7 +22,7 @@ module.exports.run = (client, message, args) => {
     "us-west" : "🇺🇸 \`États-Unis (Ouest)\`",
   };
 
-  let verificationLvl = {
+  const verificationLvl = {
     "NONE" : "Aucune",
     "LOW" : "Basse",
     "MEDIUM" : "Moyenne",
@@ -38,7 +38,7 @@ module.exports.run = (client, message, args) => {
   const texts = message.guild.channels.cache.filter(r => r.type === 'text');
   const voices = message.guild.channels.cache.filter(r => r.type === 'voice');
 
-  const serverEmbed = new MessageEmbed()
+  const embed = new MessageEmbed()
     .setColor('#b3ffb9')
     .setAuthor(`🎪 Informations sur ${message.guild.name}`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .setDescription(`Quelles sont les caractéristiques de ce serveur ? 🤔`)
@@ -57,7 +57,7 @@ module.exports.run = (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  message.channel.send(serverEmbed);
+  return message.channel.send(embed);
 
 };
 

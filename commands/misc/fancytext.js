@@ -24,7 +24,8 @@ module.exports.run = async (client, message, args) => {
     mapping[c] = mapping[c.toUpperCase()] = ` :regional_indicator_${c}:`;
   });
 
-  message.channel.send(args.join(' ').split('').map(c => mapping[c] || c).join(''));
+  return message.channel.send(args.join(' ').split('').map(c => mapping[c] || c).join(''));
+
 };
 
 module.exports.help = MESSAGES.COMMANDS.MISC.FANCYTEXT;

@@ -1,7 +1,8 @@
 const {MESSAGES} = require('../../util/constants');
 const {MessageEmbed} = require('discord.js');
-const filters = require("../../config/filters.json");
+
 const {prefix} = require('../../config/bot.json');
+const filters = require('../../config/filters.json');
 
 module.exports.run = async (client, message, args) => {
 

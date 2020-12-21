@@ -1,11 +1,11 @@
 const {MESSAGES} = require('../../util/constants');
-const {MessageEmbed} = require("discord.js");
+const {MessageEmbed} = require('discord.js');
 
-const {logsChannel} = require("../../config/guild.json");
+const {logsChannel} = require('../../config/guild.json');
 
 module.exports.run = async (client, message, args) => {
 
-    let user = message.guild.member(message.mentions.users.first());
+    const user = message.guild.member(message.mentions.users.first());
 
     const pruneErrorEmbed = new MessageEmbed()
         .setColor('#c43131')
@@ -51,6 +51,7 @@ module.exports.run = async (client, message, args) => {
     message.delete();
         
     client.channels.cache.get(logsChannel).send(purgeLogsEmbed);
+    
 };
 
 module.exports.help = MESSAGES.COMMANDS.MOD.PRUNE;
