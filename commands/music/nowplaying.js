@@ -31,9 +31,7 @@ module.exports.run = async (client, message, args) => {
   const track = await client.player.nowPlaying(message);
   const filters = [];
 
-  Object.keys(client.player.getQueue(message).filters).forEach((filterName) => {
-    if (client.player.getQueue(message).filters[filterName]) filters.push(filterName);
-  });
+  Object.keys(client.player.getQueue(message).filters).forEach((filterName) => client.player.getQueue(message).filters[filterName]) ? filters.push(filterName) : false;
 
   const NPEmbed = new MessageEmbed()
     .setColor('#ebffcc')
@@ -42,7 +40,7 @@ module.exports.run = async (client, message, args) => {
     .addFields(
       {name: "> Jouée actuellement", value: track.title, inline: false},
       {name: "> Lancée par", value: track.requestedBy.username, inline: false},
-      {name: "> Filtres activés", value: filters.length, inline: true},
+      {name: "> Filtres activés", value: filters.length + '/' + client.filters.length, inline: true},
       {name: "> Volume", value: client.player.getQueue(message).volume, inline: true},
       {name: "> Répétition ?", value: client.player.getQueue(message).repeatMode ? 'Oui' : 'Non', inline: true},
       {name: "> Progression", value: client.player.createProgressBar(message, {timecodes: true}), inline: false},

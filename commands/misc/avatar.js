@@ -19,8 +19,8 @@ module.exports.run = (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(!args[0]) return message.channel.send(embed);
-  if(args[0]) return args[0] = message.mentions.users.first() ? message.channel.send(embed) : message.channel.send(errorMentionEmbed);
+  if (!args[0]) return message.channel.send(embed);
+  else return args[0] = message.mentions.users.first() ? message.channel.send(embed) : message.channel.send(errorMentionEmbed);
 
 };
 

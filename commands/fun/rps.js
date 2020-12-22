@@ -39,13 +39,9 @@ module.exports.run = (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if ((emote[args[0]] === '⛰️' && botChoice === '✂️') || (emote[args[0]] === '📄' && botChoice === '⛰️') || (emote[args[0]] === '✂️' && botChoice === '📄')) {
-    embed.addField(`Tu as gagné ! Bravo 👏`, `${emote[args[0]]} contre ${botChoice}`, false);
-  } else if (emote[args[0]] === botChoice) {
-    embed.addField(`Égalité ! Sommes-nous connectés ? 🧐`, `${emote[args[0]]} contre ${botChoice}`, false);
-  } else {
-    embed.addField(`Tu as perdu ! Je pense être trop fort pour toi ! 🤠`, `${emote[args[0]]} contre ${botChoice}`, false);
-  };
+  if ((emote[args[0]] === '⛰️' && botChoice === '✂️') || (emote[args[0]] === '📄' && botChoice === '⛰️') || (emote[args[0]] === '✂️' && botChoice === '📄')) embed.addField(`Tu as gagné ! Bravo 👏`, `${emote[args[0]]} contre ${botChoice}`, false);
+  else if (emote[args[0]] === botChoice) embed.addField(`Égalité ! Sommes-nous connectés ? 🧐`, `${emote[args[0]]} contre ${botChoice}`, false);
+  else embed.addField(`Tu as perdu ! Je pense être trop fort pour toi ! 🤠`, `${emote[args[0]]} contre ${botChoice}`, false);
 
   return message.channel.send(embed);
 

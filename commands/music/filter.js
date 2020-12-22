@@ -61,25 +61,19 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  const filter = args[0];
-  if(!filter) return message.channel.send(errorValidFilter);
+  if(!args[0]) return message.channel.send(errorValidFilter);
 
-  const filterToUpdate = Object.values(filters).find((f) => f.toLowerCase() === filter.toLowerCase());
-
+  const filterToUpdate = client.filters.find((x) => x.toLowerCase() === args[0].toLowerCase());
   if(!filterToUpdate) return message.channel.send(errorNotFiltersFilter);
 
-  const filterRealName = Object.keys(filters).find((f) => filters[f] === filterToUpdate);
-
-  const queueFilters = client.player.getQueue(message).filters
   const filtersUpdated = {};
-  filtersUpdated[filterRealName] = queueFilters[filterRealName] ? false : true;
+  filtersUpdated[filterRealName] = client.player.getQueue(message).filters[filterToUpdate] ? false : true;
+
   client.player.setFilters(message, filtersUpdated);
 
-  if(filtersUpdated[filterRealName]) {
-    message.channel.send(filterEnableEmbed);
-    } else {
-    message.channel.send(filterDisableEmbed);
-    };
+  if (filtersUpdated[filterRealName]) message.channel.send(filterEnableEmbed);
+  else message.channel.send(filterDisableEmbed);
+
 };
 
 module.exports.help = MESSAGES.COMMANDS.MUSIC.FILTER;

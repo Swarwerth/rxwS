@@ -7,8 +7,8 @@ moment.locale('fr')
 module.exports.run = (client, message, args) => {
 
   const bot = {
-        "false": "👤 Humain",
-        "true" : "🤖 Bot"
+    "false": "👤 Humain",
+    "true" : "🤖 Bot"
   };
 
   const user = message.mentions.users.first() || message.author;

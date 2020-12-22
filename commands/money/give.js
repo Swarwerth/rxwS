@@ -33,9 +33,8 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if (args[1].includes('-')) {
-    embed.addField(`Le compte ${message.mentions.users.first().username} vient d'être débité !`, `**${args[1]}** ${moneyemote} ont été débités du compte de ${message.mentions.users.first()}.\nSon nouveau solde est de ${solde} ${moneyemote}.`, false)
-  } else if (!args[1].includes('-')) embed.addField(`Le compte ${message.mentions.users.first().username} vient d'être crédité !`, `**${args[1]}** ${moneyemote} ont été crédité du compte de ${message.mentions.users.first()}.\nSon nouveau solde est de ${solde} ${moneyemote}.`, false);
+  if (args[1].includes('-')) embed.addField(`Le compte ${message.mentions.users.first().username} vient d'être débité !`, `**${args[1]}** ${moneyemote} ont été débités du compte de ${message.mentions.users.first()}.\nSon nouveau solde est de ${solde} ${moneyemote}.`, false)
+  else if (!args[1].includes('-')) embed.addField(`Le compte ${message.mentions.users.first().username} vient d'être crédité !`, `**${args[1]}** ${moneyemote} ont été crédité du compte de ${message.mentions.users.first()}.\nSon nouveau solde est de ${solde} ${moneyemote}.`, false);
 
   return message.channel.send(embed);
 

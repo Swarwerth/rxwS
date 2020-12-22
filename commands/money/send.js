@@ -21,8 +21,8 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(isNaN(args[1]) || args[1].includes('-')) return message.channel.send(errorArgs);
-  if(moneyAuthor < args[1]) return message.channel.send(errorNoMoney);
+  if (isNaN(args[1]) || args[1].includes('-')) return message.channel.send(errorArgs);
+  if (moneyAuthor < args[1]) return message.channel.send(errorNoMoney);
 
   const moneyAuthor = db.fetch(`money_${message.author.id}`);
 
