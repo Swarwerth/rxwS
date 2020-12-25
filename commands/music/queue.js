@@ -19,18 +19,20 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(!message.member.voice.channel) return message.channel.send(errorChannel);
+  if (!message.member.voice.channel) return message.channel.send(errorChannel);
   if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(errorSameChannel);
 
   const noMusicQueue = new MessageEmbed()
     .setColor('#ccfdff')
     .setAuthor(`🥏 Queue vide !`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .addField(`Aucune musique n'est dans la queue actuellement !`, `Pour rajouter une musique dans la queue, utilisez la commande \`${prefix}play\` !`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
   const queue = client.player.getQueue(message);
-  if(!queue) return message.channel.send(noMusicQueue);
+  if (!queue) return message.channel.send(noMusicQueue);
 
   const queueTracks = queue.tracks.map((track, i) => {
     return `**#${i}** - ${track.title} | ${track.author} (${track.requestedBy})`
@@ -39,6 +41,8 @@ module.exports.run = async (client, message, args) => {
   const queueEmbed = new MessageEmbed()
     .setColor('#ccfdff')
     .setAuthor(`🥏 Musique en attente`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`Jouée actuellement :`, `${queue.playing.title} | ${queue.playing.author}`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))

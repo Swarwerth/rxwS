@@ -24,22 +24,23 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(!message.member.voice.channel) return message.channel.send(errorChannel);
+  if (!message.member.voice.channel) return message.channel.send(errorChannel);
   if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(errorSameChannel);
-  if(!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
-
-  client.player.setRepeatMode(message, false);
-  client.player.stop(message);
+  if (!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
 
   const stopEmbed = new MessageEmbed()
     .setColor('#ffccf2')
     .setAuthor(`⏹ Lecture arrêtée`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`La lecture a été arrêtée !`, `L'ensemble des musiques dans la queue a été supprimée !`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  message.channel.send(stopEmbed);
+  client.player.setRepeatMode(message, false);
+  client.player.stop(message);
+  return message.channel.send(stopEmbed);
 
 };
 

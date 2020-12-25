@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
     .setTimestamp();
 
   const botMessage = await message.channel.send(`🎲 Lancement !`);
-  botMessage.edit(embed);
+  return botMessage.edit(embed);
 
 };
 

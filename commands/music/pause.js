@@ -26,21 +26,22 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(!message.member.voice.channel) return message.channel.send(errorChannel);
+  if (!message.member.voice.channel) return message.channel.send(errorChannel);
   if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(errorSameChannel);
-  if(!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
-
-  await client.player.pause(message);
+  if (!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
 
   const pauseEmbed = new MessageEmbed()
     .setColor('#ffe2cc')
     .setAuthor(`⏸ Musique en pause !`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(client.player.getQueue(message).playing.thumbnail)
     .addField(`${client.player.getQueue(message).playing.title} mis en pause !`, `Tapez la commande \`${prefix}resume\` pour relancer la musique !`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  message.channel.send(pauseEmbed);
+  await client.player.pause(message);
+  return message.channel.send(pauseEmbed);
 
 };
 

@@ -22,10 +22,9 @@ module.exports.run = (client, message, args) => {
 
     const emojiEmbed = new MessageEmbed()
     .setColor('#ab6394')
-    .setAuthor(`🎐 Informations sur ${emoji.name}`)
+    .setAuthor(`🎐 Informations sur ${emoji.name}`, emoji.url)
     .setThumbnail(emoji.url)
     .addFields(
-      {name: `> Représentation`, value: emoji, inline: true},
       {name: `> Identifiant`, value: '`' + emoji.id + '`', inline: true},
       {name: `> Uploadé par`, value: author, inline: true},
       {name: `> Uploadé le`, value: '`' + moment(emoji.createdAt).format('LLL') + '`', inline: true},
@@ -36,7 +35,7 @@ module.exports.run = (client, message, args) => {
 
     return message.channel.send(emojiEmbed);
     
-  })
+  });
 };
 
 module.exports.help = MESSAGES.COMMANDS.MISC.INFOEMOJI;

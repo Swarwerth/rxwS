@@ -1,10 +1,15 @@
 {
   "prefix": "//",
-  "token": "*token*",
+  "token": "TokeN",
+
   "activityname": "https://github.com/Swarwerth/rxwS/",
   "activitytype": "WATCHING",
   "status": "dnd",
+
   "idcreator": "259302097197989888",
+
   "moneyemote": "🪙",
-  "repemote": "🔥"
+  "repemote": "🔥",
+
+  "apiGenius": "TokenGeniuS"
 }

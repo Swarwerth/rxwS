@@ -11,9 +11,9 @@ module.exports = (client, message) => {
     .setAuthor(`🎯 ${user.tag} a envoyé une requête !`, user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setThumbnail(user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addFields(
-          {name: "> Utilisateur", value: user, inline: false},
-          {name: "> Identifiant", value: '`' + user.id + '`', inline: false},
-          {name: "> Message", value: message.content, inline: false},
+      {name: `> Utilisateur`, value: user, inline: true},
+      {name: `> Identifiant`, value: '`' + user.id + '`', inline: true},
+      {name: `> Message`, value: message.content, inline: false},
     )
     .setTimestamp();
 
@@ -26,5 +26,6 @@ module.exports = (client, message) => {
     .setTimestamp();
 
   user.send(ticketEmbed);
-  client.channels.cache.get(modChannel).send(ticketLogsEmbed);
-}
+  return client.channels.cache.get(modChannel).send(ticketLogsEmbed);
+
+};

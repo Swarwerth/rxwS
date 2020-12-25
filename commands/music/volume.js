@@ -24,9 +24,9 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(!message.member.voice.channel) return message.channel.send(errorChannel);
+  if (!message.member.voice.channel) return message.channel.send(errorChannel);
   if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(errorSameChannel);
-  if(!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
+  if (!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
 
   const errorArgsVolume = new MessageEmbed()
     .setColor('#c43131')
@@ -35,18 +35,20 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(isNaN(args[0]) || Math.round(parseInt(args[0])) < 1 || Math.round(parseInt(args[0])) > 100) return message.channel.send(errorArgsVolume);
+  if (isNaN(args[0]) || Math.round(parseInt(args[0])) < 1 || Math.round(parseInt(args[0])) > 100 || args[0] === 'Infinity') return message.channel.send(errorArgsVolume);
 
   const volumeEmbed = new MessageEmbed()
     .setColor('#ccffd3')
     .setAuthor(`🔉 Volume modifié !`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`Le volume a été modifié à`, parseInt(args[0]) + '%', false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
   client.player.setVolume(message, args[0]);
-  message.channel.send(volumeEmbed);
+  return message.channel.send(volumeEmbed);
 
 };
 

@@ -35,21 +35,24 @@ module.exports.run = async (client, message, args) => {
 
   const NPEmbed = new MessageEmbed()
     .setColor('#ebffcc')
-    .setAuthor(`⌚ Temps restant...`)
+    .setAuthor(`⌚ Informations sur ${track.title}`)
+    .setTitle(`Lien vers la vidéo`)
+    .setURL(track.url)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addFields(
-      {name: "> Jouée actuellement", value: track.title, inline: false},
-      {name: "> Lancée par", value: track.requestedBy.username, inline: false},
-      {name: "> Filtres activés", value: filters.length + '/' + client.filters.length, inline: true},
-      {name: "> Volume", value: client.player.getQueue(message).volume, inline: true},
-      {name: "> Répétition ?", value: client.player.getQueue(message).repeatMode ? 'Oui' : 'Non', inline: true},
-      {name: "> Progression", value: client.player.createProgressBar(message, {timecodes: true}), inline: false},
+      {name: `> Lancée par`, value: track.requestedBy, inline: true},
+      {name: `> Chaîne Youtube`, value: '`' + track.author + '`', inline: true},
+      {name: `> Nombre de vues`, value: '`' + track.views + ' vues`', inline: true},
+      {name: `> Filtres activés`, value: '`' + filters.length + '`', inline: true},
+      {name: `> Volume`, value: '`' + client.player.getQueue(message).volume + '`', inline: true},
+      {name: `> Répétition ?`, value: '`' + (client.player.getQueue(message).repeatMode ? 'Oui' : 'Non') + '`', inline: true},
+      {name: `> Progression`, value: client.player.createProgressBar(message, {timecodes: true}), inline: false},
     )
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setThumbnail(track.thumbnail)
     .setTimestamp();
 
-  message.channel.send(NPEmbed);
+  return message.channel.send(NPEmbed);
 
 };
 

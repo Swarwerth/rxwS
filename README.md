@@ -6,21 +6,24 @@
 ## ⚡ Installation
 
 You need first of all, to **download the code** and have [Node.js](https://nodejs.org/) and a **code editor**, like [Visual Studio Code](https://code.visualstudio.com/). Then, you need to modify file `config/bot.json/`.
-You need to replace \*token\* by your token. You can find the bot's token on the [Discord Developpers](https://discordapp.com/developers/applications) page.
+You need to replace *TokeN* by your token. You can find the bot's token on the [Discord Developpers](https://discordapp.com/developers/applications) page. You need to replace also *TokenGeniuS* by a Genius token. You can find it on the [Genius Developpers](https://genius.com/developers) page.
 
 ```js
 {
-  "token": "*token*",
+  // ...
+  "token": "TokeN",
+  // ...
+  "apiGenius": "TokenGeniuS"
 }
 ```
 
-Moreover, you need to change the ID in the `config/guild.json` file. To find the channels' ID and the guild's ID, you need to have the developper mode in Discord. You need to replace \*id\* by the ID's.
+Moreover, you need to change the ID in the `config/guild.json` file. To find the channels' ID and the guild's ID, you need to have the developper mode in Discord. You need to replace *ID* by the ID's.
 
 ```js
 {
-  "logsChannel": "*id*",
-  "modChannel": "*id*",
-  "guild" : "*id*"
+  "logsChannel": "ID",
+  "modChannel": "ID",
+  "guild" : "ID"
 }
 ```
 
@@ -49,6 +52,7 @@ Now, your bot is on and all is ok!
 | //botinfo             | Display informations about the bot                                      | bot, info                                | //botinfo                      |
 | //help                | Display all the commands                                                | commands, list                           | //help [avatar]                |
 | //ping                | Display the bot's latence                                               | latence, pong                            | //ping                         |
+| //eval                | Evaluate the code                                                       | /                                        | //eval [message.guild]         |
 
 #### 🎉 Fun commands
 
@@ -111,9 +115,10 @@ Now, your bot is on and all is ok!
 | //filter              | Activate or desactivate a filter                                        | effect, filtre                           | //filter 8D                    |
 | //filters             | Show the filter's list                                                  | effectlist, filterslist                  | //filters                      |
 | //loop                | Loop the queue                                                          | boucle, replay                           | //loop                         |
+| //lyrics              | Display the lyrics                                                      | l, paroles                               | //lyrics [Blame]               |
 | //nowplaying          | Display informations about the current music                            | np, time, timeleft, tl                   | //nowplaying                   |
 | //pause               | Pause the current music                                                 | /                                        | //pause                        |
-| //play                | Play a Youtube video                                                    | joue, song, p                            | //play Alan Walker             |
+| //play                | Play a Youtube video                                                    | joue, song, p                            | //play Blame                   |
 | //queue               | Display the queue                                                       | list, q                                  | //queue                        |
 | //resume              | Resume the current music                                                | /                                        | //resume                       |
 | //shuffle             | Shuffle the queue                                                       | aléatoire, mélange, random               | //shuffle                      |
@@ -129,6 +134,7 @@ You can send direct messages to the bot. It will be send in the mod channel set 
 
 - [@discordjs/opus](https://www.npmjs.com/package/@discordjs/opus)
 - [axios](https://www.npmjs.com/package/axios)
+- [discord-paginationembed](https://www.npmjs.com/package/discord-paginationembed)
 - [discord-player](https://www.npmjs.com/package/discord-player)
 - [discord.js](https://www.npmjs.com/package/discord.js)
 - [ffmpeg-static](https://www.npmjs.com/package/opusscript)

@@ -7,7 +7,7 @@ const {MessageEmbed} = require('discord.js');
 
 module.exports = (client, message) => {
 
-  if(message.channel.type === 'dm') return client.emit('directMessage', message);
+  if (message.channel.type === 'dm') return client.emit('directMessage', message);
 
   const prefixEmbed = new MessageEmbed()
     .setColor('#edca1a')
@@ -16,9 +16,9 @@ module.exports = (client, message) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(message.mentions.users.first() == '771916455822098452') return message.channel.send(prefixEmbed);
+  if (message.mentions.users.first() == '771916455822098452') return message.channel.send(prefixEmbed);
   
-  if(!message.content.startsWith(prefix) || message.author.bot) return;
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
   
   const args = message.content.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
@@ -55,10 +55,11 @@ module.exports = (client, message) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(command.help.permissions && !message.member.hasPermission(command.help.permissionFlag)) return message.channel.send(errorNotPermissionsCommandEmbed);
-  if(command.help.args && !args.length) return message.channel.send(errorIncompleteCommandEmbed);
-  if(command.help.isUserAdmin && !user) return message.channel.send(errorNotOnServerCommandEmbed)
-  if(command.help.isUserAdmin && message.guild.member(user).hasPermission(command.help.permissionFlag)) return message.channel.send (errorNotPermissionsOnMemberCommandEmbed);
+  if (command.help.permissions && !message.member.hasPermission(command.help.permissionFlag)) return message.channel.send(errorNotPermissionsCommandEmbed);
+  if (command.help.args && !args.length) return message.channel.send(errorIncompleteCommandEmbed);
+  if (command.help.isUserAdmin && !user) return message.channel.send(errorNotOnServerCommandEmbed)
+  if (command.help.isUserAdmin && message.guild.member(user).hasPermission(command.help.permissionFlag)) return message.channel.send (errorNotPermissionsOnMemberCommandEmbed);
 
   command.run(client, message, args);
-}
+
+};

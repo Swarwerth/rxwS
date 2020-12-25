@@ -2,7 +2,6 @@ const {MESSAGES} = require('../../util/constants');
 const {MessageEmbed} = require('discord.js');
 
 const {prefix} = require('../../config/bot.json');
-const filters = require('../../config/filters.json');
 
 module.exports.run = async (client, message, args) => {
 
@@ -27,9 +26,9 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(!message.member.voice.channel) return message.channel.send(errorChannel);
+  if (!message.member.voice.channel) return message.channel.send(errorChannel);
   if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(errorSameChannel);
-  if(!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
+  if (!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
 
   const errorValidFilter = new MessageEmbed()
     .setColor('#c43131')
@@ -48,6 +47,8 @@ module.exports.run = async (client, message, args) => {
   const filterEnableEmbed = new MessageEmbed()
     .setColor('#cce0ff')
     .setAuthor(`🪁 Filtre activé !`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`Le filtre \`${args[0]}\` est en cours d'activation, merci de patienter...`, `Plus la musique est longue, plus l'attente sera longue.\nPour désactiver le filtre, merci de taper \`${prefix}filter ${args[0]}\``, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
@@ -56,23 +57,26 @@ module.exports.run = async (client, message, args) => {
   const filterDisableEmbed = new MessageEmbed()
     .setColor('#cce0ff')
     .setAuthor(`🪁 Filtre désactivé !`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`Le filtre \`${args[0]}\` est en cours de désactivation, merci de patienter...`, `Plus la musique est longue, plus l'attente sera longue`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(!args[0]) return message.channel.send(errorValidFilter);
+  if (!args[0]) return message.channel.send(errorValidFilter);
 
   const filterToUpdate = client.filters.find((x) => x.toLowerCase() === args[0].toLowerCase());
-  if(!filterToUpdate) return message.channel.send(errorNotFiltersFilter);
+  if (!filterToUpdate) return message.channel.send(errorNotFiltersFilter);
 
   const filtersUpdated = {};
-  filtersUpdated[filterRealName] = client.player.getQueue(message).filters[filterToUpdate] ? false : true;
+
+  filtersUpdated[filterToUpdate] = client.player.getQueue(message).filters[filterToUpdate] ? false : true;
 
   client.player.setFilters(message, filtersUpdated);
 
-  if (filtersUpdated[filterRealName]) message.channel.send(filterEnableEmbed);
-  else message.channel.send(filterDisableEmbed);
+  if (filtersUpdated[filterToUpdate]) return message.channel.send(filterEnableEmbed);
+  else return message.channel.send(filterDisableEmbed);
 
 };
 

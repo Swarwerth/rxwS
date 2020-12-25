@@ -26,13 +26,15 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  if(!message.member.voice.channel) return message.channel.send(errorChannel);
+  if (!message.member.voice.channel) return message.channel.send(errorChannel);
   if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(errorSameChannel);
-  if(!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
+  if (!client.player.getQueue(message)) return message.channel.send(errorNoMusic);
 
   const loopEnableEmbed = new MessageEmbed()
     .setColor('#ccfdff')
     .setAuthor(`🥏 Queue en boucle activée !`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`La répétition de la queue a été activée !`, `Effectuez une nouvelle fois la commande \`${prefix}loop\` pour désactiver la boucle !`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
@@ -41,6 +43,8 @@ module.exports.run = async (client, message, args) => {
   const loopDisableEmbed = new MessageEmbed()
     .setColor('#ccfdff')
     .setAuthor(`🥏 Queue en boucle désactivée !`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`La répétition de la queue a été désactivée !`, `Effectuez une nouvelle fois la commande \`${prefix}loop\` pour réactiver la boucle !`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
@@ -49,11 +53,15 @@ module.exports.run = async (client, message, args) => {
   const repeatMode = client.player.getQueue(message).repeatMode;
 
   if(repeatMode) {
+
     client.player.setRepeatMode(message, false);
     return message.channel.send(loopDisableEmbed);
+
   } else {
+
     client.player.setRepeatMode(message, true);
     return message.channel.send(loopEnableEmbed);
+    
   };
 };
 

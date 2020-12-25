@@ -30,7 +30,7 @@ module.exports.run = (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
     .setTimestamp();
 
-  message.channel.send(embed);
+  return message.channel.send(embed);
   
 };
 
