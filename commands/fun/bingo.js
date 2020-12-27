@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
   const errorArgs = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
-    .addField(`Je n'ai pas pu exécuter la commande \`bingo\` !`, `Merci de rentrer un nombre entier entre 1 et 500 !`, false)
+    .addField(`Je n'ai pas pu exécuter la commande \`bingo\` !`, `Merci de rentrer un nombre entier entre 5 et 500 !`, false)
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
-  if (isNaN(args[0]) || Math.round(parseInt(args[0])) < 1 || Math.round(parseInt(args[0])) > 500) return message.channel.send(errorArgs);
+  if (isNaN(args[0]) || Math.round(parseInt(args[0])) < 5 || Math.round(parseInt(args[0])) > 500) return message.channel.send(errorArgs);
 
   const max = parseInt(args[0]);
   const rdm = Math.floor(Math.random()*max) + 1;
