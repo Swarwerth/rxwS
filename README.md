@@ -3,6 +3,8 @@
   Le code est essentiellement en Français 🇫🇷.
   Si vous avez besoin d'aide pour votre projet, vous pouvez me contacter sur Discord : `Swarwerth#2943`
 
+  L'exemple est sous licence GPL. Merci de la respecter en mentionnant le nom Swarwerth dans votre code.
+
 ## ⚡ Installation
 
 Vous devez d'abord, **télécharger le code** et avoir [Node.js](https://nodejs.org/) ainsi qu'avoir un **éditeur de code**, comme [Visual Studio Code](https://code.visualstudio.com/). Par la suite, vous devez modifier le fichier `config/bot.json/`. Vous devez replacer *TokeN* par le token de votre bot, pour le trouver, il vous suffit de vous rendre sur la page de [Discord Developpers](https://discordapp.com/developers/applications). Vous devez également replacer *TokenGeniuS* par votre token Genius pour générer les paroles. Pour l'obtenir, il vous faut vous rendre sur la page [Genius Developpers](https://genius.com/developpers).
