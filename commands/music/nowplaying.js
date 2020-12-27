@@ -7,21 +7,21 @@ module.exports.run = async (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`np\` !`, `Connectez-vous dans un salon vocal pour utiliser cette commande !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorSameChannel = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`np\` !`, `Connectez-vous dans le même salon vocal pour utiliser cette commande !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorNoMusic = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`np\` !`, `Aucune musique n'est jouée actuellement !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if(!message.member.voice.channel) return message.channel.send(errorChannel);
@@ -41,14 +41,14 @@ module.exports.run = async (client, message, args) => {
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addFields(
       {name: `> Lancée par`, value: track.requestedBy, inline: true},
-      {name: `> Chaîne Youtube`, value: '`' + track.author + '`', inline: true},
-      {name: `> Nombre de vues`, value: '`' + track.views + ' vues`', inline: true},
-      {name: `> Filtres activés`, value: '`' + filters.length + '`', inline: true},
-      {name: `> Volume`, value: '`' + client.player.getQueue(message).volume + '`', inline: true},
-      {name: `> Répétition ?`, value: '`' + (client.player.getQueue(message).repeatMode ? 'Oui' : 'Non') + '`', inline: true},
+      {name: `> Chaîne Youtube`, value: `\`${track.author}\``, inline: true},
+      {name: `> Nombre de vues`, value: `\`${track.views} vues\``, inline: true},
+      {name: `> Filtres activés`, value: `\`${filters.length}\``, inline: true},
+      {name: `> Volume`, value: `\`${parseInt(client.player.getQueue(message).volume)}\``, inline: true},
+      {name: `> Répétition de la musique`, value: '`' + (client.player.getQueue(message).repeatMode ? `Activée` : `Désactivée`) + '`', inline: true},
       {name: `> Progression`, value: client.player.createProgressBar(message, {timecodes: true}), inline: false},
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setThumbnail(track.thumbnail)
     .setTimestamp();
 

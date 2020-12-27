@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
       .setColor('#3d93d9')
       .setAuthor(`📊 Classement monnaie !`, client.user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setDescription(finalLbmoney)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     return message.channel.send(moneyEmbed);
@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args) => {
       .setColor('#3d93d9')
       .setAuthor(`📊 Classement réputation !`, client.user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setDescription(finalLbrep)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     return message.channel.send(repEmbed);

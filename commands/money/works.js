@@ -4,8 +4,7 @@ const {MessageEmbed} = require('discord.js');
 const db = require('quick.db');
 const ms = require('ms');
 
-const {prefix} = require('../../config/bot.json');
-const {moneyemote} = require('../../config/bot.json');
+const {prefix, moneyemote} = require('../../config/bot.json');
 
 const {WORKS} = require('../../util/money');
 
@@ -48,14 +47,14 @@ module.exports.run = async (client, message, args) => {
       {name: `> 3 - ${WORKS.THREE.name}`, value: `Gain : ${WORKS.THREE.amount} ${moneyemote}\nDélai : ${ms(WORKS.THREE.timeout)} 🕔`, inline: true},
       {name: `> 4 - ${WORKS.FOUR.name}`, value: `Gain : ${WORKS.FOUR.amount} ${moneyemote}\nDélai : ${ms(WORKS.FOUR.timeout)} 🕔`, inline: true},
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorWorksEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Le métier \`${args.join(' ')}\` n'existe pas !`, `La liste des métiers est disponible en faisant \`${prefix}works\` ! Vérifie bien l'orthographe du métier !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (args[0] && works !== null && Worktimeout - (Date.now() - worktime) > 0) {
@@ -66,7 +65,7 @@ module.exports.run = async (client, message, args) => {
       .setColor('#c43131')
       .setAuthor(`💢 Erreur !`)
       .addField(`Tu ne peux pas changer de travail !`, `Tu as déjà pris un salaire ! Il faut que tu attendes encore **${ms(time)}** pour pouvoir changer de poste !`, false)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     return message.channel.send(errorChangeWorkEmbed);
@@ -82,7 +81,7 @@ module.exports.run = async (client, message, args) => {
       .setAuthor(`🚢 Métier assingné !`)
       .setThumbnail(message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .addField(`Tu as reçu un nouveau poste !`, `Tu deviens officiellement **${nameworksarg[worksarg[args.join(' ')]]}** ! Tu peux dès à présent utiliser la commande \`${prefix}work\` !`, false)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     return message.channel.send(worksNewEmbed);

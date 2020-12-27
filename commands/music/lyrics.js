@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`lyrics\` !`, `Merci de spécifier une musique !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   let search;
@@ -46,7 +46,7 @@ module.exports.run = async (client, message, args) => {
           .setTitle(`Lien vers Genius`)
           .setURL(firstSong.url)
           .setDescription(lyrics.slice(b * 1024, i * 1024))
-          .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+          .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
           .setTimestamp()
           
       );
@@ -65,7 +65,7 @@ module.exports.run = async (client, message, args) => {
       .setColor('#c43131')
       .setAuthor(`💢 Erreur !`)
       .addField(`Je n'ai pas pu exécuter la commande \`lyrics\` !`, `Merci de réessayer ultérieurement la commande !`, false)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     message.channel.send(error)

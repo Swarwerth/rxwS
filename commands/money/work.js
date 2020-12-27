@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
       .setColor('#3d93d9')
       .setAuthor(`🛷 Le temps n'est pas encore écoulé...`)
       .addField(`Tu ne peux pas encore récupérer ton salaire !`, `Reviens dans **${ms(time)}** 🕔 !`, false)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     return message.channel.send(errorWork);
@@ -46,7 +46,7 @@ module.exports.run = async (client, message, args) => {
       .setColor('#3d93d9')
       .setAuthor(`🛷 Travail effectué !`)
       .setThumbnail(message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     if (works === 'ONE') workEmbed.addField(`Le dragon a été vaincu !`, `Tu récupères le stuff et le vends au marchant le plus proche. Tu remportes **${Workamount}** ${moneyemote} !`);

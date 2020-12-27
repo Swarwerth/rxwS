@@ -7,7 +7,7 @@ module.exports.run = (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`\`${args[0]}\` n'est pas défini !`, `Merci d'utiliser la commande \`rps\` avec *pierre*, *papier* ou *ciseaux* !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const rps = ['pierre', 'papier', 'ciseaux', 'rock', 'paper', 'scissors', '⛰️', '📄', '✂️', 'r', 'p', 's'];
@@ -35,8 +35,9 @@ module.exports.run = (client, message, args) => {
 
   const embed = new MessageEmbed()
     .setColor('#32a4a8')
-    .setAuthor(`⛰️ Pierre, Papier, Ciseaux !`)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setAuthor(`⛰️ Pierre, Papier, Ciseaux !`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if ((emote[args[0]] === '⛰️' && botChoice === '✂️') || (emote[args[0]] === '📄' && botChoice === '⛰️') || (emote[args[0]] === '✂️' && botChoice === '📄')) embed.addField(`Tu as gagné ! Bravo 👏`, `${emote[args[0]]} contre ${botChoice}`, false);

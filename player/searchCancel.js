@@ -6,7 +6,7 @@ module.exports = (client, message, query, tracks) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Aucune réponse valide n'a été donnée !`, `Merci de retaper la commande \`play\` !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
     
   message.channel.send(searchCancel);

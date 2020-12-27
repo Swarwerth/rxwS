@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
     .setAuthor(`❌ Mute !`, user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setThumbnail(user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`❌ Son droit de parole s'est envolé !`, `${user.username} a été rendu muet.`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const DMEmbed = new MessageEmbed()
@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
     .setDescription(`*${message.guild.name}*`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`❌ Ton droit de parole s'est envolé !`, `Tu as été rendu muet du serveur **${message.guild.name}** pour \`${ms(ms(muteTime))}\` avec comme raison : \`${reason}\``, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const unmuteDMEmbed = new MessageEmbed()
@@ -39,7 +39,7 @@ module.exports.run = async (client, message, args) => {
     .setDescription(`*${message.guild.name}*`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`✅ Tu as de nouveau le droit de parler !`, `Tu peux de nouveau parler sur **${message.guild.name}** !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const logsEmbed = new MessageEmbed()
@@ -51,28 +51,28 @@ module.exports.run = async (client, message, args) => {
       {name: `> Temps mute`, value: '`' + ms(ms(muteTime)) + '`', inline: false},
       {name: `> Raison`, value: '`' + reason + '`', inline: false},
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorPermissionsMuteEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu utiliser la commande \`mute\` sur cet utilisateur !`, `Vérifie bien si j'ai les permissions requises pour gérer les rôles !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorNoGuildEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu utiliser la commande \`mute\` sur cet utilisateur !`, `L'utilisateur mentionné n'est pas dans le serveur Discord !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorNoMentionEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu utiliser la commande \`mute\` !`, `Merci de mentionner un utilisateur à rendre muet !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (!message.guild) return;

@@ -11,7 +11,7 @@ module.exports.run = (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu bien exécuter la commande \`calc\` !`, `Merci d'envoyer une équation mathématique valide !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   let answer;
@@ -23,9 +23,10 @@ module.exports.run = (client, message, args) => {
 
   const embed = new MessageEmbed()
     .setColor('#1f316b')
-    .setAuthor(`🧮 Calculatrice`)
+    .setAuthor(`🧮 Calculatrice`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`${calcul} =`, answer)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   return message.channel.send(embed);

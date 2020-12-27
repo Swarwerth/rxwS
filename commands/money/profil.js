@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
       {name: `> Réputation`, value: `${reputation === null ? 0 : reputation} ${repemote}`, inline: true},
       {name: `> Métier`, value: works === null ? '🛏 Aucun' : nameworkarg[works], inline: false}
       )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   return message.channel.send(moneyEmbed);

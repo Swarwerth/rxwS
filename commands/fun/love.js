@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
     .setAuthor(`💙 Calcul d'Affinité`, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setThumbnail(lover.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setDescription(`${message.author} est compatible avec ${lover} à`)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
   
   if (loveIndex == 0) embed.addField(`${Math.floor(loveRandom)}% ! 👀`, `On va faire comme si on n'avait rien vu...\n${loveLevel}`, false);
@@ -33,7 +33,7 @@ module.exports.run = async (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu bien exécuter la commande \`love\` !`, `Merci de mentionner un utilisateur du serveur !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
   
   return args[0] = message.mentions.users.first() ? message.channel.send(embed) : message.channel.send(errorMentionEmbed);

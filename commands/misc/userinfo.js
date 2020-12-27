@@ -30,9 +30,9 @@ module.exports.run = (client, message, args) => {
       {name: `> Bip Boop ?`, value: '`' + bot[user.bot] + '`', inline: true},
       {name: `> Créé le`, value: '`' + moment(user.createdAt).format('LLL') + '`', inline: true},
       {name: `> A rejoint le`, value: '`' + moment(member.joinedAt).format('llll') + '`', inline: true},
-      {name: `> Rôles`, value: rolesMap.join(', ').replace(', @everyone', ''), inline: false},
+      {name: `> Rôles [${rolesMap.length - 1}]`, value: rolesMap.join(', ').replace(', @everyone', ''), inline: false},
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   return message.channel.send(embed);

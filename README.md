@@ -1,12 +1,11 @@
 # rxwS - Bot discord.js
-  An exemple of a Discord bot, using discord.js.
-  The code is essantially in **French** 🇫🇷. *It will maybe translate 👀*.
-  If you need help for your project, you can contact me in *Discussion* or in Discord: `Swarwerth#2943`
+  Un exemple de bot Discord, utilisant discord.js !
+  Le code est essentiellement en Français 🇫🇷.
+  Si vous avez besoin d'aide pour votre projet, vous pouvez me contacter sur Discord : `Swarwerth#2943`
 
 ## ⚡ Installation
 
-You need first of all, to **download the code** and have [Node.js](https://nodejs.org/) and a **code editor**, like [Visual Studio Code](https://code.visualstudio.com/). Then, you need to modify file `config/bot.json/`.
-You need to replace *TokeN* by your token. You can find the bot's token on the [Discord Developpers](https://discordapp.com/developers/applications) page. You need to replace also *TokenGeniuS* by a Genius token. You can find it on the [Genius Developpers](https://genius.com/developers) page.
+Vous devez d'abord, **télécharger le code** et avoir [Node.js](https://nodejs.org/) ainsi qu'avoir un **éditeur de code**, comme [Visual Studio Code](https://code.visualstudio.com/). Par la suite, vous devez modifier le fichier `config/bot.json/`. Vous devez replacer *TokeN* par le token de votre bot, pour le trouver, il vous suffit de vous rendre sur la page de [Discord Developpers](https://discordapp.com/developers/applications). Vous devez également replacer *TokenGeniuS* par votre token Genius pour générer les paroles. Pour l'obtenir, il vous faut vous rendre sur la page [Genius Developpers](https://genius.com/developpers).
 
 ```js
 {
@@ -17,7 +16,7 @@ You need to replace *TokeN* by your token. You can find the bot's token on the [
 }
 ```
 
-Moreover, you need to change the ID in the `config/guild.json` file. To find the channels' ID and the guild's ID, you need to have the developper mode in Discord. You need to replace *ID* by the ID's.
+De plus, vous devez changer les identifiants de salon et de serveur dans `config/guild.json/`. Pour trouver ces identifiants, vous devez avoir le Mode Développeur Discord d'activé. Vous devez alors remplacer *ID* par ces identifiants.
 
 ```js
 {
@@ -27,108 +26,110 @@ Moreover, you need to change the ID in the `config/guild.json` file. To find the
 }
 ```
 
-Now, you need to install all dependencies. With the console, write:
+Maintenant, dernière étape, vous devez installer tous les modules avec cette commande, à inscrire dans la console :
 
 ```
 npm install
 ```
 
-## ☀ Turn on the bot
+## ☀ Allumer le bot
 
-All the installation is done, you can now start your bot, with **node**. In the console, you need to write:
+Toute l'installation a été effectuée, vous devez allumer le bot en utilisant, dans la console, la commande :
 
 ```
 node index.js
 ```
 
-Now, your bot is on and all is ok!
+Maintenant votre bot est allumé et tout est ok !
 
-## 🎈 Features
+## 🎈 Fonctionnalités
 
-#### 🤖 Bot commands
+#### 🤖 Commandes - Bot
 
-| Command               | Description                                                             | Aliases                                  | Usage                          |
+| Commande              | Description                                                             | Aliases                                  | Usage                          |
 | --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
-| //botinfo             | Display informations about the bot                                      | bot, info                                | //botinfo                      |
-| //help                | Display all the commands                                                | commands, list                           | //help [avatar]                |
-| //ping                | Display the bot's latence                                               | latence, pong                            | //ping                         |
-| //eval                | Evaluate the code                                                       | /                                        | //eval [message.guild]         |
+| //botinfo             | Affiche les informations sur le bot                                     | bot, info                                | //botinfo                      |
+| //eval                | Evalue le code donné                                                    | /                                        | //eval [message.guild]         |
+| //help                | Affiche la liste des commandes et de leurs informations une par une     | commands, list                           | //help [avatar]                |
+| //ping                | Affiche la latence du bot                                               | latence, pong                            | //ping                         |
 
-#### 🎉 Fun commands
+#### 🎉 Commandes - Fun
 
-| Command               | Description                                                             | Aliases                                  | Usage                          |
+| Commande              | Description                                                             | Aliases                                  | Usage                          |
 | --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
-| //dice                | Throw a dice                                                            | dé                                       | //dice                         |
-| //joke                | Display a joke                                                          | blague                                   | //joke                         |
-| //love                | Display the percentage of love between two users                        | affinity, amour, calclove                | //love @Swarwerth              |
-| //question            | Answer to a question asked                                              | 8ball, ask                               | //question Am I beautiful?     |
-| //rps                 | Play Rock, paper, scissors                                              | pfc, rock                                | //rps rock                     |
-| //shoot               | Kill the mentionned user                                                | kill, tuer                               | //shoot @Swarwerth             |
+| //bingo               | Lance un bingo                                                          | /                                        | //bingo 50                     |
+| //dice                | Lance un dé                                                             | dé                                       | //dice                         |
+| //joke                | Affiche une blague choisie au hasard                                    | blague                                   | //joke                         |
+| //love                | Affiche le poucentage d'amour entre deux utilisateurs                   | affinity, amour, calclove                | //love @Swarwerth              |
+| //question            | Répond à une question posée                                             | 8ball, ask                               | //question Suis-je beau ?      |
+| //rps                 | Joue à Pierre, papier, ciseaux                                          | pfc, rock                                | //rps rock                     |
+| //shoot               | Tue l'utilisateur mentionné                                             | kill, tuer                               | //shoot @Swarwerth             |
 
-#### 🧨 Miscellaneous commands
+#### 🧨 Commandes - Divers
 
-| Command               | Description                                                             | Aliases                                  | Usage                          |
+| Commande              | Description                                                             | Aliases                                  | Usage                          |
 | --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
-| //avatar              | Display someone's avatar                                                | logo, picture                            | //avatar [@Swarwerth]          |
-| //calc                | Calculate an expression                                                 | /                                        | //calc 2+2                     |
-| //fancytext           | Use emoji to write a text                                               | emojitext, fancy                         | //text Hello World!            |
-| //fliptext            | Flip a text                                                             | flip                                     | //fliptext Hello World!        |
-| //infoemoji           | Display emoji's informations                                            | emoji, emote, infoemote                  | //infoemoji :kappa:            |
-| //instagram           | Display an instagram profil                                             | insta                                    | //instagram swarwerth          |
-| //poll                | Threw a poll                                                            | quickpoll, sondage                       | //poll Am I beautiful?         |
-| //say                 | Make talk the bot                                                       | repeat                                   | //say Hello World!             |
-| //serverinfo          | Display the server's informations                                       | guild, server, serverstats, si           | //serverinfo                   |
-| //userinfo            | Display the user's informations                                         | ui, user, userstats                      | //userinfo @Swarwerth          |
+| //avatar              | Affiche l'avatar d'une personne                                         | logo, picture                            | //avatar [@Swarwerth]          |
+| //calc                | Calcule une expression                                                  | /                                        | //calc 2+2                     |
+| //fancytext           | Utilise les emojis pour écrire un texte                                 | emojitext, fancy                         | //fancytext Hello World!       |
+| //fliptext            | Renverse un texte                                                       | flip                                     | //fliptext Hello World!        |
+| //infoemoji           | Affiche les informations sur l'emoji                                    | emoji, emote, infoemote                  | //infoemoji :kappa:            |
+| //instagram           | Affiche un profil Instagram                                             | insta                                    | //instagram swarwerth          |
+| //poll                | Lance un sondage                                                        | quickpoll, sondage                       | //poll Suis-je beau ?          |
+| //say                 | Fait parler le bot                                                      | repeat                                   | //say Hello World!             |
+| //serverinfo          | Affiche les informations du serveur                                     | guild, server, serverstats, si           | //serverinfo                   |
+| //userinfo            | Affiche les informations d'un utilisateur                               | ui, user, userstats                      | //userinfo [@Swarwerth]        |
 
-#### 🔫 Moderation
+#### 🔫 Commandes - Modération
 
-| Command               | Description                                                             | Aliases                                  | Usage                          |
+| Commande              | Description                                                             | Aliases                                  | Usage                          |
 | --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
-| //ban                 | Ban an user                                                             | /                                        | //ban @Swarwerth [Spam]        |
-| //kick                | Kick an user                                                            | /                                        | //kick @Swarwerth [Spam]       |
-| //mute                | Mute an user                                                            | chut, muet                               | //mute [60s] [Spam]            |
-| //prune               | Delete user's messages                                                  | /                                        | //prune @Swarwerth 50          |
-| //purge               | Delete messages                                                         | clear, suppr                             | //purge 50                     |
-| //unban               | Unban an user                                                           | deban                                    | //unban 259302097197989888     |
-| //unmute              | Unmute an user                                                          | demute                                   | //unmute @Swarwerth            |
+| //ban                 | Bannit un utilisateur                                                   | /                                        | //ban @Swarwerth [Spam]        |
+| //kick                | Exclut un utilisateur                                                   | /                                        | //kick @Swarwerth [Spam]       |
+| //mute                | Rend muet un utilisateur                                                | chut, muet                               | //mute [60s] [Spam]            |
+| //prune               | Supprime les messages d'un utilisateur                                  | /                                        | //prune @Swarwerth 50          |
+| //purge               | Supprime les messages dans un salon donné                               | clear, suppr                             | //purge 50                     |
+| //unban               | Supprime le bannissement d'un utilisateur                               | deban                                    | //unban 259302097197989888     |
+| //unmute              | Rend la parole à une personne muette                                    | demute                                   | //unmute @Swarwerth            |
 
-### 💵 Economy
+### 💵 Commandes - Économie
 
-| Command               | Description                                                             | Aliases                                  | Usage                          |
+| Commande              | Description                                                             | Aliases                                  | Usage                          |
 | --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
-| //coinflip            | Make a bet on a coinflip                                                | coin, flip                               | //coinflip 20 pile             |
-| //daily               | Give daily money                                                        | /                                        | //daily                        |
-| //give                | Give money to an user                                                   | /                                        | //give @Swarwerth 50           |
-| //leaderboard         | Display the money or reputation leaderboard                             | lb, leader                               | //leaderboard [rep]            |
-| //profil              | Display the user's profil                                               | me, money                                | //profil [@Swarwerth]          |
-| //reputation          | Give a reputation point to an user                                      | point, rep                               | //reputation @Swarwerth        |
-| //send                | Send money to an user                                                   | /                                        | //send @Swarwerth 50           |
-| //work                | Work to earn money                                                      | /                                        | //work                         |
-| //works               | Display the list of works                                               | /                                        | //works 1                      |
+| //coinflip            | Fait un pari sur un lancer de pièce                                     | coin, flip                               | //coinflip 20 pile             |
+| //daily               | Donne de l'argent quotidiennement                                       | /                                        | //daily                        |
+| //give                | Donne de l'argent à l'utilisateur mentionné                             | /                                        | //give @Swarwerth 50           |
+| //leaderboard         | Affiche le classement Money ou Réputation                               | lb, leader                               | //leaderboard [rep]            |
+| //profil              | Affiche le profil de l'utilisateur                                      | me, money                                | //profil [@Swarwerth]          |
+| //reputation          | Donne un point de réputation à l'utilisateur                            | point, rep                               | //reputation @Swarwerth        |
+| //send                | Envoie de l'argent à l'utilisateur                                      | /                                        | //send @Swarwerth 50           |
+| //work                | Travaille pour gagner de l'argent                                       | /                                        | //work                         |
+| //works               | Affiche la liste des métiers et permet d'être recruté dans l'un d'eux   | /                                        | //works 1                      |
 
-#### 🎵 Music
-*Thanks to [ZerioDev](https://github.com/ZerioDev/Music-bot) for his help!*
+#### 🎵 Commandes - Musique
+*Merci à [ZerioDev](https://github.com/ZerioDev/Music-bot) pour son aide !*
 
-| Command               | Description                                                             | Aliases                                  | Usage                          |
+| Commande              | Description                                                             | Aliases                                  | Usage                          |
 | --------------------- | ------------------------------------------------------------------------| -----------------------------------------|--------------------------------|
-| //clearqueue          | Clear the queue                                                         | cq, qc, queueclear                       | //clearqueue                   |
-| //filter              | Activate or desactivate a filter                                        | effect, filtre                           | //filter 8D                    |
-| //filters             | Show the filter's list                                                  | effectlist, filterslist                  | //filters                      |
-| //loop                | Loop the queue                                                          | boucle, replay                           | //loop                         |
-| //lyrics              | Display the lyrics                                                      | l, paroles                               | //lyrics [Blame]               |
-| //nowplaying          | Display informations about the current music                            | np, time, timeleft, tl                   | //nowplaying                   |
-| //pause               | Pause the current music                                                 | /                                        | //pause                        |
-| //play                | Play a Youtube video                                                    | joue, song, p                            | //play Blame                   |
-| //queue               | Display the queue                                                       | list, q                                  | //queue                        |
-| //resume              | Resume the current music                                                | /                                        | //resume                       |
-| //shuffle             | Shuffle the queue                                                       | aléatoire, mélange, random               | //shuffle                      |
-| //skip                | Skip the current music                                                  | s, sauter                                | //skip                         |
-| //stop                | Stop the queue                                                          | /                                        | //stop                         |
-| //volume              | Change the bot's volume                                                 | /                                        | //volume 80                    |
+| //clearqueue          | Supprime la queue                                                       | cq, qc, queueclear                       | //clearqueue                   |
+| //filter              | Ajoute un filtre à la queue en cours                                    | effect, filtre                           | //filter 8D                    |
+| //filters             | Affiche la liste des filtres                                            | effectlist, filterslist                  | //filters                      |
+| //loop                | Met en boucle une musique ou la queue                                   | boucle, replay                           | //loop                         |
+| //lyrics              | Affiche les paroles de la musique en cours ou d'une recherchée          | l, paroles                               | //lyrics [Blame]               |
+| //nowplaying          | Affiche les informations sur la musique en cours                        | np, time, timeleft, tl                   | //nowplaying                   |
+| //pause               | Met en pause la musiquee en cours                                       | /                                        | //pause                        |
+| //play                | Joue la musique donnée                                                  | joue, song, p                            | //play Blame                   |
+| //queue               | Affiche la queue en cours                                               | list, q                                  | //queue                        |
+| //resume              | Relance la queue en cours                                               | /                                        | //resume                       |
+| //search              | Cherche une musique et lance celle choisie                              | sr                                       | //search Blame                 |
+| //shuffle             | Tri de façon aléatoire la queue                                         | aléatoire, mélange, random               | //shuffle                      |
+| //skip                | Saute une musique                                                       | s, sauter                                | //skip                         |
+| //stop                | Arrête la lecture                                                       | /                                        | //stop                         |
+| //volume              | Modifie le volume de la queue                                           | /                                        | //volume 80                    |
 
 #### 🎞 Tickets
 
-You can send direct messages to the bot. It will be send in the mod channel set by `config/guild.json`
+Vous pouvez envoyer un message privé au bot. Celui-ci enverra au salon modération défini dans `config/guild.json/` un ticket avec le message envoyé au bot !
 
 ## 🎏 Modules
 
@@ -139,6 +140,7 @@ You can send direct messages to the bot. It will be send in the mod channel set 
 - [discord.js](https://www.npmjs.com/package/discord.js)
 - [ffmpeg-static](https://www.npmjs.com/package/opusscript)
 - [fs](https://www.npmjs.com/package/fs)
+- [genius-lyrics](https://www.npmjs.com/package/genius-lyrics)
 - [math-expression-evaluator](https://www.npmjs.com/package/math-expression-evaluator)
 - [moment](https://www.npmjs.com/package/moment)
 - [ms](https://www.npmjs.com/package/ms)

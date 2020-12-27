@@ -15,7 +15,7 @@ const MESSAGES = {
       EVAL: {
         name: 'eval',
         aliases: [],
-        description: `Permet d'évaluer le code`,
+        description: `Evalue le code donné`,
         category: 'bot',
         permissions: true,
         permissionFlag: 'ADMINISTRATOR',
@@ -47,6 +47,17 @@ const MESSAGES = {
       }
     },
     FUN: {
+      BINGO: {
+        name: 'bingo',
+        aliases: [],
+        description : `Lance un bingo`,
+        category: 'fun',
+        permissions: false,
+        permissionFlag: '',
+        isUserAdmin: false,
+        usage: '<maximum>',
+        args: true,
+      },
       DICE: {
         name: 'dice',
         aliases: ['dé'],
@@ -222,7 +233,7 @@ const MESSAGES = {
         permissions: false,
         permissionFlag: '',
         isUserAdmin: false,
-        usage: '',
+        usage: '[@mention]',
         args: false,
       },
     },
@@ -230,7 +241,7 @@ const MESSAGES = {
       BAN: {
         name: 'ban',
         aliases: [],
-        description: `Ban un utilisateur`,
+        description: `Bannit un utilisateur`,
         category: 'mod',
         permissions: true,
         permissionFlag: 'BAN_MEMBERS',
@@ -241,7 +252,7 @@ const MESSAGES = {
       KICK: {
         name: 'kick',
         aliases: [],
-        description: `Exclure un utilisateur`,
+        description: `Exclut un utilisateur`,
         category: 'mod',
         permissions: true,
         permissionFlag: 'KICK_MEMBERS',
@@ -261,7 +272,7 @@ const MESSAGES = {
         args: true,
       },
       PRUNE: {
-        name: "prune",
+        name: 'prune',
         aliases: [],
         description: `Supprime les messages d'un utilisateur`,
         category: 'mod',
@@ -272,7 +283,7 @@ const MESSAGES = {
         args: true,
       },
       PURGE: {
-        name: "purge",
+        name: 'purge',
         aliases: ['clear', 'suppr'],
         description: `Supprime les messages dans un salon donné`,
         category: 'mod',
@@ -283,7 +294,7 @@ const MESSAGES = {
         args: true,
       },
       UNBAN: {
-        name: "unban",
+        name: 'unban',
         aliases: ['deban'],
         description: `Supprime le bannissement d'un utilisateur`,
         category: 'mod',
@@ -294,7 +305,7 @@ const MESSAGES = {
         args: true,
       },
       UNMUTE: {
-        name: "unmute",
+        name: 'unmute',
         aliases: ['demute'],
         description: `Rend la parole à une personne muette`,
         category: 'mod',
@@ -309,7 +320,7 @@ const MESSAGES = {
       COINFLIP: {
         name: 'coinflip',
         aliases: ['coin', 'flip'],
-        description: `Fait un pari sur un lancé une pièce`,
+        description: `Fait un pari sur un lancer une pièce`,
         category: 'money',
         permissions: false,
         permissionFlag: '',
@@ -419,7 +430,7 @@ const MESSAGES = {
         args: false,
       },
       FILTER: {
-        name: "filter",
+        name: 'filter',
         aliases: ['effect', 'filtre'],
         description: `Ajoute un filtre à la queue en cours`,
         category: 'music',
@@ -443,12 +454,12 @@ const MESSAGES = {
       LOOP: {
         name: 'loop',
         aliases: ['boucle', 'replay'],
-        description: `Met en boucle une musique`,
+        description: `Met en boucle une musique ou la queue`,
         category: 'music',
         permissions: false,
         permissionFlag: '',
         isUserAdmin: false,
-        usage: '',
+        usage: '[queue]',
         args: false,
       },
       LYRICS: {
@@ -487,7 +498,7 @@ const MESSAGES = {
       PLAY: {
         name: 'play',
         aliases: ['joue', 'p', 'song'],
-        description: `Joue la musique sélectionnée`,
+        description: `Joue la musique donné`,
         category: 'music',
         permissions: false,
         permissionFlag: '',
@@ -509,12 +520,23 @@ const MESSAGES = {
       RESUME: {
         name: 'resume',
         aliases: [],
-        description: "Relance la queue en cours",
+        description: `Relance la queue en cours`,
         category: 'music',
         permissions: false,
-        permissionFlag: "",
+        permissionFlag: '',
         isUserAdmin: false,
-        usage: "",
+        usage: '',
+        args: false,
+      },
+      SEARCH: {
+        name: 'search',
+        aliases: ['sr'],
+        description: `Cherche une musique et lance celle choisie`,
+        category: 'music',
+        permissions: false,
+        permissionFlag: '',
+        isUserAdmin: false,
+        usage: '',
         args: false,
       },
       SHUFFLE: {

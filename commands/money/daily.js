@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
       .setColor('#3d93d9')
       .setAuthor(`🎊 Le temps n'est pas encore écoulé...`)
       .addField(`Ahah, petit malin, tu ne peux pas obtenir de l'argent dans la même journée !`, `Reviens dans **${ms(time)}** 🕔 !`, false)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     return message.channel.send(errorDaily);
@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
       .setAuthor(`🎊 De l'argent coule à flot !`)
       .setThumbnail(message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .addField(`Tu viens de remporter de l'argent !`, `La journée est bonne pour toi ! **${DAILY.amount}** ${moneyemote} ont été crédités sur ton compte !`, false)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
     
     return message.channel.send(embed);

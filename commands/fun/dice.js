@@ -16,9 +16,10 @@ module.exports.run = async (client, message, args) => {
 
   const embed = new MessageEmbed()
     .setColor('#91c8ff')
-    .setAuthor(`🎲 Générateur de dé`)
+    .setAuthor(`🎲 Générateur de dé`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`J'ai choisi la face`, number[dice], false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const botMessage = await message.channel.send(`🎲 Lancement !`);

@@ -3,18 +3,18 @@ const {modChannel, guild} = require('../../config/guild.json')
 
 module.exports = (client, message) => {
 
-  const user = message.author;
-  if (user.bot) return;
+  if (message.author.bot) return;
 
   const ticketLogsEmbed = new MessageEmbed()
     .setColor('#cfe3ff')
-    .setAuthor(`🎯 ${user.tag} a envoyé une requête !`, user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
-    .setThumbnail(user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
+    .setAuthor(`🎯 ${message.author.tag} a envoyé une requête !`, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
+    .setThumbnail(message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addFields(
-      {name: `> Utilisateur`, value: user, inline: true},
-      {name: `> Identifiant`, value: '`' + user.id + '`', inline: true},
+      {name: `> Utilisateur`, value: message.author, inline: true},
+      {name: `> Identifiant`, value: '`' + message.author.id + '`', inline: true},
       {name: `> Message`, value: message.content, inline: false},
     )
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
    const ticketEmbed = new MessageEmbed()
@@ -23,9 +23,10 @@ module.exports = (client, message) => {
     .setThumbnail(client.guilds.cache.get(guild).iconURL({dynamic: true, size: 4096, format: 'png'}))
     .setDescription(`*${client.guilds.cache.get(guild).name}*`)
     .addField(`🎯 Votre requête a été envoyée à notre équipe !`, `Merci de patienter le temps que notre équipe vous réponde !`, false)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
-  user.send(ticketEmbed);
+  message.author.send(ticketEmbed);
   return client.channels.cache.get(modChannel).send(ticketLogsEmbed);
 
 };

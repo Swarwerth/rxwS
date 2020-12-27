@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`insta\` !`, `Merci d'indiquer un compte Instragram existant !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   let url, response, account, details;
@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
       {name: `> Abonnés`, value: '`' + details.edge_followed_by.count.toLocaleString() + '`', inline: true},
       {name: `> Abonnements`, value: '`' + details.edge_follow.count.toLocaleString() + '`', inline: true},
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   return message.channel.send(embed);

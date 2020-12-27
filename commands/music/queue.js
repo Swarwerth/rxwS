@@ -9,14 +9,14 @@ module.exports.run = async (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`queue\` !`, `Connectez-vous dans un salon vocal pour utiliser cette commande !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorSameChannel = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`queue\` !`, `Connectez-vous dans le même salon vocal pour utiliser cette commande !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (!message.member.voice.channel) return message.channel.send(errorChannel);
@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args) => {
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .addField(`Aucune musique n'est dans la queue actuellement !`, `Pour rajouter une musique dans la queue, utilisez la commande \`${prefix}play\` !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const queue = client.player.getQueue(message);
@@ -40,16 +40,16 @@ module.exports.run = async (client, message, args) => {
 
   const queueEmbed = new MessageEmbed()
     .setColor('#ccfdff')
-    .setAuthor(`🥏 Musique en attente`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .setAuthor(`🥏 Musique en attente ${client.player.getQueue(message).loopMode ? `(Queue répétée)` : ``}`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`Jouée actuellement :`, `${queue.playing.title} | ${queue.playing.author}`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (queue.tracks.length !== 1) {
-    queueEmbed.addField(queue.tracks.length < 2 ? `Musique suivante :` : "Musiques suivantes :", queueTracks, false)
+    queueEmbed.addField(queue.tracks.length < 2 ? `Musique suivante :` : `Musiques suivantes :`, queueTracks, false)
   };
 
   return message.channel.send(queueEmbed);

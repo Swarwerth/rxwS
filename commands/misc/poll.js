@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
     .addFields(
       {name: args.join(" "), value: `Votez Pour/Oui avec ✅ \nou\nContre/Non avec ❌ !`, inline: false}
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   return message.channel.send(embed)

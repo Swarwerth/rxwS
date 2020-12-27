@@ -1,5 +1,5 @@
 const {MESSAGES} = require('../../util/constants');
-const {MessageEmbed} = require('discord.js');
+const {MessageEmbed, version} = require('discord.js');
 
 module.exports.run = (client, message, args) => {
 
@@ -10,21 +10,21 @@ module.exports.run = (client, message, args) => {
     .setURL(`https://github.com/Swarwerth/rxwS/`)
     .setThumbnail(client.user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addFields(
-      {name: `> Tag`, value: '`' + client.user.tag + '`', inline: true},
-      {name: `> Créé le`, value: '`31 octobre 2020`', inline: true},
+      {name: `> Tag`, value: `\`${client.user.tag}\``, inline: true},
+      {name: `> Créé le`, value: `\`31 ocbobre 2020\``, inline: true},
       {name: `> Développeur`, value: `<@259302097197989888>`, inline: true},
       {name: `> Statistiques`, value:
-        '`' + client.guilds.cache.size + ' serveurs`' +
-        '`' + client.channels.cache.size + ' salons`' +
-        '\n`' + client.users.cache.size + ' utilisateurs`',
+        `\`${client.guilds.cache.size} serveurs\`` +
+        `\n\`${client.channels.cache.size} salons\`` +
+        `\n\`${client.users.cache.size} utilisateurs\``,
         inline: true},
-      {name: `> Versions - 20w52c`, value:
-        'Discord.js : `v.12.4.1`' +
-        '\nNode.js : `v.12.18.3`',
+      {name: `> Versions - 20w52d`, value:
+        `Discord.js : \`${version}\`` +
+        `\nNode.js : \`${process.version}\``,
         inline: true},
       {name: `> Modules`, value: `https://github.com/ZerioDev/Music-bot`, inline: false}
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format: 'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   return message.channel.send(embed);

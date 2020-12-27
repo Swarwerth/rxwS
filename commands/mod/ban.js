@@ -24,16 +24,16 @@ module.exports.run = (client, message, args) => {
     .setAuthor(`🚫 Bannissement !`, user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setThumbnail(user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`🚫 Le jugement est irrévocable !`, `${user.username} a été banni du serveur.`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const DMEmbed = new MessageEmbed()
     .setColor('#ff7373')
-    .setAuthor(`🚫 Bannissement !`, message.guild.iconURL({dynamic: true, format:'png'}))
+    .setAuthor(`🚫 Bannissement !`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .setDescription(`*${message.guild.name}*`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`🚫 Le jugement est irrévocable !`, `Tu as été bannis du serveur **${message.guild.name}** avec comme raison : \`${reason}\``, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const logsEmbed = new MessageEmbed()
@@ -47,28 +47,28 @@ module.exports.run = (client, message, args) => {
       {name: `> A rejoint le`, value: '`' + moment(member.joinedAt).format('llll') + '`', inline: false},
       {name: `> Raison bannissement`, value: '`' + reason + '`', inline: false},
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'jpg'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorPermissionsEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu utiliser la commande \`ban\` sur cet utilisateur !`, `Vérifie bien si j'ai les permissions requises pour bannir l'utilisateur !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorNoGuildEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu utiliser la commande \`ban\` sur cet utilisateur !`, `L'utilisateur mentionné n'est pas dans le serveur Discord !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorNoMentionEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu utiliser la commande \`ban\` !`, `Merci de mentionner un utilisateur à bannir !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (!message.guild) return;

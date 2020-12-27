@@ -11,20 +11,20 @@ module.exports.run = async (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`send\` !`, `Merci d'effectuer la commande correctement en mentionnant une personne et en donnant un nombre correct !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorNoMoney = new MessageEmbed()
     .setColor('#91c8ff')
     .setAuthor(`🌙 Tu ne peux pas utiliser la commande !`)
     .addField(`Tu n'as pas assez d'argent sur ton compte !`, `Tu ne peux pas donner de l'argent que tu n'as pas ! Merci de donner des ${moneyemote} déjà dans ton compte !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
+
+  const moneyAuthor = db.fetch(`money_${message.author.id}`);
 
   if (isNaN(args[1]) || args[1].includes('-')) return message.channel.send(errorArgs);
   if (moneyAuthor < args[1]) return message.channel.send(errorNoMoney);
-
-  const moneyAuthor = db.fetch(`money_${message.author.id}`);
 
   const soldeMention = await db.add(`money_${message.mentions.users.first().id}`, args[1]);
   const soldeAuthor = await db.add(`money_${message.author.id}`, `-${args[1]}`);
@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
       {name: `> Solde de ${message.author.username}`, value: `${soldeAuthor} ${moneyemote}`, inline: true},
       {name: `> Solde de ${message.mentions.users.first().username}`, value: `${soldeMention} ${moneyemote}`, inline: true}
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const DMembed = new MessageEmbed()
@@ -47,7 +47,7 @@ module.exports.run = async (client, message, args) => {
     .setDescription(`*${message.guild.name}*`)
     .setThumbnail(message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`${message.author.username} vient de te donner de l'argent !`, `**${args[1]}** ${moneyemote} ont été déposés sur ton compte !\nTu as actuellement ${soldeMention} ${moneyemote}.`)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   message.guild.member(message.mentions.users.first()).send(DMembed);

@@ -36,7 +36,7 @@ module.exports.run = (client, message, args) => {
       .setURL(`https://github.com/Swarwerth/rxwS/`)
       .setDescription(`Pour plus d'informations sur une commande, tapez \`${prefix}help <commande>\` !`)
       .setThumbnail(client.user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
-      .setFooter(message.author.tag, message.author.displayAvatarURL({format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     for (const category of categoryList) embed.addField(`> ${categoryName[category]}`,'`' + `${client.commands.filter(cat => cat.help.category === category.toLowerCase()).map(cmd => cmd.help.name).join('`, `')}` + '`');
@@ -49,7 +49,7 @@ module.exports.run = (client, message, args) => {
       .setColor('#c43131')
       .setAuthor(`💢 Erreur !`)
       .addField(`La commande \`${args[0]}\` n'existe pas !`, `La liste des commandes est disponible en faisant \`${prefix}help\` ! Vérifie bien l'orthographe de la commande !`, false)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format: 'png'}))
       .setTimestamp();
 
     if (!command) return message.channel.send(errorCommand);
@@ -66,14 +66,13 @@ module.exports.run = (client, message, args) => {
         {name: `> Permission requise`, value: '`' + permissionName[command.help.permissionFlag] + '`', inline: true},
         {name: `> Utilisation`, value: command.help.usage ? `\`${prefix}${command.help.name} ${command.help.usage}\`` : `\`${prefix}${command.help.name}\``, inline: false}
       )
-      .setFooter(message.author.tag, message.author.displayAvatarURL({format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     if (command.help.aliases.length >= 1) commandEmbed.addField(`> Aliases`, '`' + command.help.aliases.join('`, `') + '`', false);
 
     return message.channel.send(commandEmbed);
   };
-  
 };
 
 module.exports.help = MESSAGES.COMMANDS.BOT.HELP;

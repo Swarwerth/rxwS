@@ -32,11 +32,11 @@ module.exports.run = (client, message, args) => {
 
   const rolesMap = message.guild.roles.cache.map(role => role.toString());
   const emotesMap = message.guild.emojis.cache.map(emoji => emoji.toString());
-  const channelsMap = message.guild.channels.cache.filter(channel => channel.type !== 'category');
 
-  const categories = message.guild.channels.cache.filter(r => r.type === 'category');
-  const texts = message.guild.channels.cache.filter(r => r.type === 'text');
-  const voices = message.guild.channels.cache.filter(r => r.type === 'voice');
+  const channelsMap = message.guild.channels.cache.filter(channel => channel.type !== 'category');
+  const categories = message.guild.channels.cache.filter(channel => channel.type === 'category');
+  const texts = message.guild.channels.cache.filter(channel => channel.type === 'text');
+  const voices = message.guild.channels.cache.filter(channel => channel.type === 'voice');
 
   const embed = new MessageEmbed()
     .setColor('#b3ffb9')
@@ -44,17 +44,24 @@ module.exports.run = (client, message, args) => {
     .setDescription(`Quelles sont les caractéristiques de ce serveur ? 🤔`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addFields(
-        {name: `> Identifiant`, value: '`' + message.guild.id + '`', inline: true},
+        {name: `> Identifiant`, value: `\`${message.guild.id}\``, inline: true},
         {name: `> Localisation`, value: region[message.guild.region], inline: true},
         {name: `> Propriétaire`, value: message.guild.owner.user, inline: true},
-        {name: `> Créé le`, value: '`' + moment(message.guild.createdAt).format('LLL') + '`', inline: true},
-        {name: `> Vérification`, value: '`' + verificationLvl[message.guild.verificationLevel] + '`', inline: true},
-        {name: `> Membres`, value: '`' + message.guild.memberCount + ' membres`',inline: true},
-        {name: `> Salons [${channelsMap.size}]`, value: '`' + categories.size + ' catégories`' + '\n`' + texts.size + ' textuels`' + '\n`' + voices.size + ' vocaux`', inline: false},
+        {name: `> Créé le`, value: `\`${moment(message.guild.createdAt).format('LLL')}\``, inline: true},
+        {name: `> Vérification`, value: `\`${verificationLvl[message.guild.verificationLevel]}\``, inline: true},
+        {name: `> Emojis [${emotesMap.length}]`, value: emotesMap.length === 0 ? `\`Aucun\`` : emotesMap.join(' '), inline: false},
+        {name: `> Membres [${message.guild.memberCount}]`, value:
+        `\`${message.guild.members.cache.filter(member => !member.user.bot).size} humains\`` +
+        `\n\`${message.guild.members.cache.filter(member => member.user.bot).size} bots\``,
+        inline: true},
+        {name: `> Salons [${channelsMap.size}]`, value:
+          `\`${categories.size} catégories\`` +
+          `\n\`${texts.size} textuels\`` +
+          `\n\`${voices.size} vocaux\``,
+          inline: true},
         {name: `> Rôles [${rolesMap.length - 1}]`, value: rolesMap.join(', ').replace('@everyone, ', ''), inline: false},
-        {name: `> Emojis [${emotesMap.length}]`, value: emotesMap.join(' '), inline: false},
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   return message.channel.send(embed);

@@ -31,21 +31,21 @@ module.exports.run = async (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`coinflip\` !`, `Merci de rentrer un nombre valable, supérieur à 50 ${moneyemote} !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorFaceEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`coinflip\` !`, `Merci de rentrer une face valable (pile/face) !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorNoMoneyEmbed = new MessageEmbed()
     .setColor('#91c8ff')
     .setAuthor(`🏏 Tu ne peux pas utiliser la commande !`)
     .addField(`Tu n'as pas assez d'argent sur ton compte !`, `Tu ne peux pas parier de l'argent que tu n'as pas ! Merci de parier des ${moneyemote} déjà dans ton compte !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (isNaN(args[0]) || args[0] < 50) return message.channel.send(errorMoneyEmbed);
@@ -61,7 +61,7 @@ module.exports.run = async (client, message, args) => {
     .setAuthor(`🏏 Lancé de pièce !`)
     .setDescription(`Tu as effectué un pari de **${args[0]}** ${moneyemote} sur **${name[args[1]]}** !`)
     .addField(`La pièce est tombée sur :`, game[flip], false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (number[name[args[1]]] == flip) {

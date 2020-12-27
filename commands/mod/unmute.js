@@ -19,7 +19,7 @@ module.exports.run = (client, message, args) => {
     .setAuthor(`✅ Unmute !`, user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setThumbnail(user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`✅ Le graciement s'est imposé !`, `${user.username} peut de nouveau parler !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const DMEmbed = new MessageEmbed()
@@ -28,7 +28,7 @@ module.exports.run = (client, message, args) => {
     .setDescription(`*${message.guild.name}*`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`✅ Le graciement s'est imposé !`, `Tu peux de nouveau parler sur **${message.guild.name}** !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const logsEmbed = new MessageEmbed()
@@ -39,14 +39,14 @@ module.exports.run = (client, message, args) => {
       {name: `> Identifiant`, value: '`' + user.id + '`', inline: false},
       {name: `> Pseudonyme`, value: '`' + nickname + '`', inline: false},
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`${user.username} n'est pas muet !`, `Merci de mentionner un utilisateur qui a été rendu muet !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (!message.guild) return;

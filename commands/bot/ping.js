@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
     .setURL(`https://github.com/Swarwerth/rxwS/`)
     .setThumbnail(client.user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(`🏓 Pong !`, client.ws.ping + ' ms', false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
     
   const botMessage = await message.channel.send(`〽️ Calcul...`);

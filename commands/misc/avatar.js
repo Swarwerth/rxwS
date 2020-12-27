@@ -9,14 +9,14 @@ module.exports.run = (client, message, args) => {
     .setColor('#4287f5')
     .setAuthor(`🤳 Voici l'avatar de ${user.username}`)
     .setImage(user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const errorMentionEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu bien exécuter la commande \`avatar\` !`, `Merci de mentionner un utilisateur du serveur !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (!args[0]) return message.channel.send(embed);

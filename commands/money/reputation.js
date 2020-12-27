@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu bien exécuter la commande \`rep\` !`, `Merci de mentionner un utilisateur du serveur, autre que vous !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (args[0].replace('<@!', '').replace('>', '') !== message.mentions.users.first().id) return message.channel.send(errorMention);
@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
       .setColor('#3d93d9')
       .setAuthor(`🥂 Le temps n'est pas encore écoulé...`)
       .addField(`Tu as déjà donné ton point de réputation aujourd'hui !`, `Reviens dans **${ms(time)}** 🕔 !`, false)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     return message.channel.send(errorRep);
@@ -45,7 +45,7 @@ module.exports.run = async (client, message, args) => {
       .setAuthor(`🥂 Point de réputation donné !`, message.mentions.users.first().displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setThumbnail(message.mentions.users.first().displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .addField(`${message.author.username} vient de donner un point de réputation à ${message.mentions.users.first().username} !`, `${message.mentions.users.first()} a maintenant **${db.fetch(`reputation_${message.mentions.users.first().id}`)}** ${repemote} !`, false)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
 
     const DMembed = new MessageEmbed()
@@ -54,7 +54,7 @@ module.exports.run = async (client, message, args) => {
       .setDescription(`*${message.guild.name}*`)
       .setThumbnail(message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .addField(`${message.author.username} vient de te donner son point de réputation !`, `Tu as actuellement **${db.fetch(`reputation_${message.mentions.users.first().id}`)}** ${repemote}.`)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
       .setTimestamp();
   
     message.guild.member(message.mentions.users.first()).send(DMembed);

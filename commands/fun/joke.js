@@ -138,9 +138,10 @@ module.exports.run = async (client, message, args) => {
 
   const embed = new MessageEmbed()
     .setColor('#a537fd')
-    .setAuthor(`🎆 Blague du bot !`)
+    .setAuthor(`🎆 Blague du bot !`, message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(question, answer)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   return message.channel.send(embed);

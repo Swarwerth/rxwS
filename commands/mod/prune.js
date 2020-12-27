@@ -11,14 +11,14 @@ module.exports.run = async (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .setDescription(`${args[1]} est invalide ! La commande s'effectue avec nombre compris entre 1 et 100 !`)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const pruneNoMessagesErrorEmbed = new MessageEmbed()
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .setDescription(`${user.user.username} n'a envoyé aucun message dans ce salon !`)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const purgeLogsEmbed = new MessageEmbed()
@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args) => {
       {name: `> Salon`, value: '<#' + message.channel.id + '>', inline: false},
       {name: `> Utilisateur`, value: user, inline: false}
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   if (isNaN(args[1]) || args[1] <= 1 || args[1] > 100) return message.channel.send(pruneErrorEmbed);

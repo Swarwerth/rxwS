@@ -9,7 +9,7 @@ module.exports = (client, message, track) => {
     .setURL(track.url)
     .setThumbnail(track.thumbnail)
     .addField(`Musique jouée actuellement :`, track.title, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   message.channel.send(trackStart);

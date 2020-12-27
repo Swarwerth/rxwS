@@ -36,8 +36,8 @@ module.exports.run = async (client, message, args) => {
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
-    .addField(`La répétition de la queue a été activée !`, `Effectuez une nouvelle fois la commande \`${prefix}loop\` pour désactiver la boucle !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .addField(`La répétition de la queue a été activée !`, `Effectuez une nouvelle fois la commande \`${prefix}loop queue\` pour désactiver la boucle !`, false)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const loopDisableEmbed = new MessageEmbed()
@@ -46,22 +46,50 @@ module.exports.run = async (client, message, args) => {
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
-    .addField(`La répétition de la queue a été désactivée !`, `Effectuez une nouvelle fois la commande \`${prefix}loop\` pour réactiver la boucle !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .addField(`La répétition de la queue a été désactivée !`, `Effectuez une nouvelle fois la commande \`${prefix}loop queue\` pour réactiver la boucle !`, false)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
-  const repeatMode = client.player.getQueue(message).repeatMode;
+  const repeatEnableEmbed = new MessageEmbed()
+    .setColor('#ccfdff')
+    .setAuthor(`🥏 Musique en boucle activée !`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
+    .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .addField(`La répétition de la musique a été activée !`, `Effectuez une nouvelle fois la commande \`${prefix}loop\` pour désactiver la boucle !`, false)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
+    .setTimestamp();
 
-  if(repeatMode) {
+  const repeatDisableEmbed = new MessageEmbed()
+    .setColor('#ccfdff')
+    .setAuthor(`🥏 Musique en boucle désactivée !`)
+    .setTitle(`Github/ZerioDev/Music-bot`)
+    .setURL(`https://github.com/ZerioDev/Music-bot/`)
+    .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
+    .addField(`La répétition de la musique a été désactivée !`, `Effectuez une nouvelle fois la commande \`${prefix}loop\` pour réactiver la boucle !`, false)
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
+    .setTimestamp();
 
-    client.player.setRepeatMode(message, false);
-    return message.channel.send(loopDisableEmbed);
+  if (args.join(' ').toLowerCase() === 'queue') {
+
+    if (client.player.getQueue(message).loopMode) {
+      client.player.setLoopMode(message, false);
+      return message.channel.send(loopDisableEmbed);
+    } else {
+      client.player.setLoopMode(message, true);
+      return message.channel.send(loopEnableEmbed);
+    };
 
   } else {
 
-    client.player.setRepeatMode(message, true);
-    return message.channel.send(loopEnableEmbed);
-    
+    if (client.player.getQueue(message).repeatMode) {
+      client.player.setRepeatMode(message, false);
+      return message.channel.send(repeatDisableEmbed);
+    } else {
+      client.player.setRepeatMode(message, true);
+      return message.channel.send(repeatEnableEmbed);
+    };
+
   };
 };
 

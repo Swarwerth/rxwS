@@ -10,7 +10,7 @@ module.exports.run = (client, message, args) => {
     .setColor('#c43131')
     .setAuthor(`💢 Erreur !`)
     .addField(`Je n'ai pas pu exécuter la commande \`emoji\` !`, `Merci d'indiquer un emoji personnalisé !`, false)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   const argsSplit = args[0].split(':')[1];
@@ -30,7 +30,7 @@ module.exports.run = (client, message, args) => {
       {name: `> Uploadé le`, value: '`' + moment(emoji.createdAt).format('LLL') + '`', inline: true},
       {name: `> Animé ?`, value: emoji.animated ? '✅' : '❌', inline: true},
     )
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
     return message.channel.send(emojiEmbed);

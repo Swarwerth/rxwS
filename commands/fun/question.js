@@ -25,9 +25,10 @@ module.exports.run = (client, message, args) => {
 
   const embed = new MessageEmbed()
     .setColor('#a537fd')
-    .setAuthor(`🎱 Je vais répondre à ta question...`)
+    .setAuthor(`🎱 Je vais répondre à ta question...`, client.user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
+    .setThumbnail(client.user.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .addField(args.join(' '), response)
-    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, format:'png'}))
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true, size: 4096, format: 'png'}))
     .setTimestamp();
 
   return message.channel.send(embed);
