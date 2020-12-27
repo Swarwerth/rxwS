@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
 
   const resumeEmbed = new MessageEmbed()
     .setColor('#dfccff')
-    .setAuthor(`⏯ Musique relancée !`)
+    .setAuthor(`⏯️ Musique relancée !`)
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(client.player.getQueue(message).playing.thumbnail)

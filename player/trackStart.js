@@ -4,7 +4,7 @@ module.exports = (client, message, track) => {
 
   const trackStart = new MessageEmbed()
     .setColor('#dfccff')
-    .setAuthor(`⏯ Musique lancée !`)
+    .setAuthor(`▶️ Musique lancée !`)
     .setTitle(`Lien vers la vidéo`)
     .setURL(track.url)
     .setThumbnail(track.thumbnail)

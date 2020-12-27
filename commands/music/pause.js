@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
 
   const pauseEmbed = new MessageEmbed()
     .setColor('#ffe2cc')
-    .setAuthor(`⏸ Musique en pause !`)
+    .setAuthor(`⏸️ Musique en pause !`)
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(client.player.getQueue(message).playing.thumbnail)

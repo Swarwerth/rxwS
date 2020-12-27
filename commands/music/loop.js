@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
 
   const loopEnableEmbed = new MessageEmbed()
     .setColor('#ccfdff')
-    .setAuthor(`🥏 Queue en boucle activée !`)
+    .setAuthor(`🔁 Queue en boucle activée !`)
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
@@ -42,7 +42,7 @@ module.exports.run = async (client, message, args) => {
 
   const loopDisableEmbed = new MessageEmbed()
     .setColor('#ccfdff')
-    .setAuthor(`🥏 Queue en boucle désactivée !`)
+    .setAuthor(`🔁 Queue en boucle désactivée !`)
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args) => {
 
   const repeatEnableEmbed = new MessageEmbed()
     .setColor('#ccfdff')
-    .setAuthor(`🥏 Musique en boucle activée !`)
+    .setAuthor(`🔂 Musique en boucle activée !`)
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
@@ -62,7 +62,7 @@ module.exports.run = async (client, message, args) => {
 
   const repeatDisableEmbed = new MessageEmbed()
     .setColor('#ccfdff')
-    .setAuthor(`🥏 Musique en boucle désactivée !`)
+    .setAuthor(`🔂 Musique en boucle désactivée !`)
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))

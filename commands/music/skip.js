@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
 
   const skipEmbed = new MessageEmbed()
     .setColor('#ffccf2')
-    .setAuthor(`⏭ Musique sautée !`)
+    .setAuthor(`⏩ Musique sautée !`)
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(client.player.getQueue(message).playing.thumbnail)

@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
 
   const stopEmbed = new MessageEmbed()
     .setColor('#ffccf2')
-    .setAuthor(`⏹ Lecture arrêtée`)
+    .setAuthor(`⏹️ Lecture arrêtée`)
     .setTitle(`Github/ZerioDev/Music-bot`)
     .setURL(`https://github.com/ZerioDev/Music-bot/`)
     .setThumbnail(message.guild.iconURL({dynamic: true, size: 4096, format: 'png'}))
